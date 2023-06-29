@@ -2,7 +2,8 @@ namespace DataLockLib.Interfaces
 {
     public interface IEncrypter
     {
-        public byte[] Encrypt(string plainText, byte[] Key, byte[] IV);
+        public byte[] GetEncryptedBytesArray(string plainText, byte[] Key, byte[] IV);
+        public string GetEncryptedString(string plainText, byte[] Key, byte[] IV);
     }
 
 }
