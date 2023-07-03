@@ -4,7 +4,7 @@ using DataLockLib.Interfaces;
 
 namespace DataLockLib.Classes
 {
-    public class Hasher : IHasher
+    public class SHA256Hasher : IHasher
     {
         public byte[] GetHashedMessage(string text)
         {
