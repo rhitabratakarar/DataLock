@@ -3,11 +3,10 @@ using DataLockLib.Interfaces;
 
 namespace DataLockLib.Classes
 {
-    public class Encrypter : IEncrypter
+    public class AESEncrypter : IEncrypter
     {
         public byte[] GetEncryptedBytesArray(string plainText, byte[] Key, byte[] IV)
         {
-            // Check arguments.
             if (plainText == null || plainText.Length <= 0)
                 throw new ArgumentNullException("plainText");
             if (Key == null || Key.Length <= 0)
@@ -16,8 +15,6 @@ namespace DataLockLib.Classes
                 throw new ArgumentNullException("IV");
             byte[] encrypted;
 
-            // Create an Aes object
-            // with the specified key and IV.
             using (Aes aesAlg = Aes.Create())
             {
                 aesAlg.Key = Key;
@@ -42,7 +39,6 @@ namespace DataLockLib.Classes
         }
         public string GetEncryptedString(string plainText, byte[] Key, byte[] IV)
         {
-            // Check arguments.
             if (plainText == null || plainText.Length <= 0)
                 throw new ArgumentNullException("plainText");
             if (Key == null || Key.Length <= 0)
@@ -51,8 +47,6 @@ namespace DataLockLib.Classes
                 throw new ArgumentNullException("IV");
             byte[] encrypted;
 
-            // Create an Aes object
-            // with the specified key and IV.
             using (Aes aesAlg = Aes.Create())
             {
                 aesAlg.Key = Key;
