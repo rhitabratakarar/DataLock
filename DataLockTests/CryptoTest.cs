@@ -1,5 +1,6 @@
 using DataLockLib.Classes;
 using DataLockLib.Interfaces;
+using DataLockLib.FactoryClasses;
 
 namespace DataLockTests
 {
@@ -13,7 +14,7 @@ namespace DataLockTests
             const string password = "very secure password";
             const string initVector = "secure init vector";
 
-            IHasher hasher = new Hasher();
+            IHasher hasher = new HasherFactory().GetHasher();
             byte[] hashedPass = hasher.GetHashedMessage(password, 32);
             byte[] hashedVect = hasher.GetHashedMessage(initVector, 16);
 
