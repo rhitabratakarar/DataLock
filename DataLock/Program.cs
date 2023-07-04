@@ -1,3 +1,4 @@
+using DataLock.Db;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -5,15 +6,10 @@ var builder = WebApplication.CreateBuilder(args);
 //Add services to the container.
 builder.Services.AddControllersWithViews();
 
-// for connection string
-// https://stackoverflow.com/questions/68980778/config-connection-string-in-net-core-6
-// https://learn.microsoft.com/en-us/ef/core/miscellaneous/connection-strings
-
-//builder.Services.AddDbContext<YourContext>(options =>
-//{
-//    options.UseSqlServer(builder.Configuration.GetConnectionString("DataLockDatabase"));
-
-//});
+builder.Services.AddDbContext<CredentialDbContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DataLockDatabase"));
+});
 
 var app = builder.Build();
 
@@ -33,6 +29,6 @@ app.MapControllerRoute(
     name: "default",
     pattern: "api/{controller}/{action=Index}/{id?}");
 
-app.MapFallbackToFile("index.html"); ;
+app.MapFallbackToFile("index.html");
 
 app.Run();
