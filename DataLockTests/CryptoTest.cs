@@ -18,10 +18,10 @@ namespace DataLockTests
             byte[] hashedPass = hasher.GetHashedMessage(password, 32);
             byte[] hashedVect = hasher.GetHashedMessage(initVector, 16);
 
-            IEncrypter encrypter = new AESEncrypter();
+            IEncrypter encrypter = new EncrypterFactory().GetEncrypter();
             string encryptedMessage = encrypter.GetEncryptedString(message, hashedPass, hashedVect);
 
-            IDecrypter decrypter = new AESDecrypter();
+            IDecrypter decrypter = new DecrypterFactory().GetDecrypter();
             string decryptedMessage = decrypter.GetDecryptedString(encryptedMessage, hashedPass, hashedVect);
 
             Assert.True(message.Equals(decryptedMessage));
