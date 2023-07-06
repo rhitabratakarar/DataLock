@@ -1,6 +1,6 @@
 import "./custom.css";
-import BrowserWindow from './components/BrowserWindow';
+import Display from "./components/Display";
 
 export default function App() {
-    return (<BrowserWindow />);
+    return (<Display />);
 }

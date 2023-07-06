@@ -6,7 +6,7 @@ export default function CredentialSearch() {
   const colors = useContext(ColorContext);
   return (
     <div
-      className="search-container px-10 items-center flex mb-3"
+      className="search-container px-10 items-center flex mb-3 md:rounded-md md:mt-3"
       style={{ backgroundColor: colors.primary }}
     >
       <div className="flex flex-row w-full justify-center">
