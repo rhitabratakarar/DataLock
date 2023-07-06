@@ -3,3 +3,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.search-container {
+  width: 100vw;
+  height: 65px;
+  flex-shrink: 0;
+}

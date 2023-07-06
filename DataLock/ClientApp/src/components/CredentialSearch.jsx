@@ -1,5 +1,29 @@
+import { useContext } from "react";
+import { ColorContext } from "../contexts";
+import { BiSearchAlt } from "react-icons/bi";
+
 export default function CredentialSearch() {
-    return (
-        <div className="w-screen h-[100px] bg-gray-500 min-h-[100px]"></div>
-    );
+  const colors = useContext(ColorContext);
+  return (
+    <div
+      className="search-container px-10 items-center flex mb-3"
+      style={{ backgroundColor: colors.primary }}
+    >
+      <div className="flex flex-row w-full justify-center">
+        <input
+          className="h-[36px] w-10/12"
+          style={{ borderRadius: "4px 0 0 4px" }}
+        />
+        <button
+          className="w-2/12 flex justify-center items-center"
+          style={{
+            borderRadius: "0 4px 4px 0",
+            backgroundColor: colors.quaternary,
+          }}
+        >
+          <BiSearchAlt size={30}/>
+        </button>
+      </div>
+    </div>
+  );
 }

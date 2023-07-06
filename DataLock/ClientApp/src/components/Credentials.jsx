@@ -1,5 +1,18 @@
+import { useContext } from "react";
+import { ColorContext } from "../contexts";
+import Credential from "./Credential";
+
 export default function Credentials() {
-    return (
-        <div className="w-screen h-[100px] bg-gray-600 min-h-[100px]">hello</div>
-    );
+	const colors = useContext(ColorContext);
+	return (
+		<div
+			className="w-11/12 h-screen min-h-[100px] flex flex-col items-center pt-2 rounded-md"
+			style={{ backgroundColor: colors.primary }}
+		>
+			<Credential />
+			<Credential />
+			<Credential />
+			<Credential />
+		</div>
+	);
 }
