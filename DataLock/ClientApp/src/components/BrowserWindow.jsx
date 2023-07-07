@@ -1,8 +1,9 @@
 import CredentialSearch from "./CredentialSearch";
 import { ColorContext } from "../contexts";
 import { useContext } from 'react';
-import Credentials from "./Credentials";
+// import Credentials from "./Credentials";
 import PageFunctions from "./PageFunctions";
+import CredentialModal from "./CredentialModal";
 
 export default function BrowserWindow() {
 	const colors = useContext(ColorContext);
@@ -14,7 +15,7 @@ export default function BrowserWindow() {
 				style={{ backgroundColor: colors.tertiary }}
 			>
 				<CredentialSearch />
-				<Credentials />
+				<CredentialModal />
 				<PageFunctions />
 			</div>
 		): (<></>)
