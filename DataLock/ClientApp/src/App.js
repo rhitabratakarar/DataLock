@@ -1,6 +1,6 @@
-import './custom.css';
-import Window from './components/Window';
+import "./custom.css";
+import Display from "./components/Display";
 
 export default function App() {
-    return (<Window />);
+    return (<Display />);
 }
