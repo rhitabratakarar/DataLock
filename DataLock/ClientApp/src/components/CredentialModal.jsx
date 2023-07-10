@@ -19,6 +19,12 @@ export default function CredentialModal() {
     // save updated credentials
     setDisabled(true);
   }
+
+  const copyText = (id) => {
+    const elementText = document.getElementById(id).value;
+    navigator.clipboard.writeText(elementText);
+  }
+  
   return (
     <InfoContainer className="py-3">
       <div
@@ -39,6 +45,7 @@ export default function CredentialModal() {
         </div>
         <div className="flex flex-col justify-center items-center overflow-y-scroll overflow-x-hidden">
           <input
+            id="name"
             type="text"
             placeholder="Name"
             className="h-8 w-full rounded-sm shadow-md text-center m-2 focus:outline-none outline-none"
@@ -46,6 +53,7 @@ export default function CredentialModal() {
             style={{ backgroundColor: colors.quaternary }}
           />
           <input
+            id="username"
             type="text"
             placeholder="Username"
             className="h-8 w-full rounded-sm shadow-md text-center m-2 focus:outline-none outline-none"
@@ -53,6 +61,7 @@ export default function CredentialModal() {
             style={{ backgroundColor: colors.quaternary }}
           />
           <input
+            id="email"
             type="Email"
             placeholder="Email"
             className="h-8 w-full rounded-sm shadow-md text-center m-2 focus:outline-none outline-none"
@@ -60,6 +69,7 @@ export default function CredentialModal() {
             style={{ backgroundColor: colors.quaternary }}
           />
           <input
+            id="password"
             type="password"
             placeholder="Password"
             className="h-8 w-full rounded-sm shadow-md text-center m-2 focus:outline-none outline-none"
@@ -68,6 +78,7 @@ export default function CredentialModal() {
             value="somerandomvalue"
           />
           <input
+            id="url"
             type="url"
             placeholder="Url"
             className="h-8 w-full rounded-sm shadow-md text-center m-2 focus:outline-none outline-none"
@@ -75,6 +86,7 @@ export default function CredentialModal() {
             style={{ backgroundColor: colors.quaternary }}
           />
           <textarea
+            id="notes"
             cols={20}
             rows={10}
             placeholder="Notes"
@@ -94,6 +106,7 @@ export default function CredentialModal() {
               borderRadius: "4px",
               backgroundColor: colors.quaternary,
             }}
+            onClick={copyText("username")}
           >
             <BiUser size={30} />
           </button>
@@ -103,6 +116,7 @@ export default function CredentialModal() {
               borderRadius: "4px",
               backgroundColor: colors.quaternary,
             }}
+            onClick={copyText("password")}
           >
             <BiKey size={30} />
           </button>
@@ -112,6 +126,7 @@ export default function CredentialModal() {
               borderRadius: "4px",
               backgroundColor: colors.quaternary,
             }}
+            onClick={copyText("email")}
           >
             <FiMail size={30} />
           </button>
@@ -120,6 +135,9 @@ export default function CredentialModal() {
             style={{
               borderRadius: "4px",
               backgroundColor: colors.quaternary,
+            }}
+            onClick={() => {
+              window.open(document.getElementById("url").value, "_blank");
             }}
           >
             <GoArrowUpRight size={30} />
