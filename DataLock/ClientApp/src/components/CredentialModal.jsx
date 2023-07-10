@@ -2,8 +2,10 @@ import { useContext, useState } from "react";
 import { ColorContext } from "../contexts";
 import InfoContainer from "./InfoContainer";
 import { AiOutlineLeft, AiOutlineSave } from "react-icons/ai";
-import { GoPencil } from "react-icons/go";
-import { BiSearchAlt } from "react-icons/bi";
+import { GoPencil, GoArrowUpRight } from "react-icons/go";
+import { FiMail } from "react-icons/fi";
+import { MdDelete } from "react-icons/md";
+import { BiUser, BiKey, } from "react-icons/bi";
 
 export default function CredentialModal() {
   // eslint-disable-next-line no-unused-vars
@@ -32,8 +34,8 @@ export default function CredentialModal() {
             <span className="text-2xl">Name</span>
           </div>
           {(disabled) ?
-            <GoPencil size={25} className="cursor-pointer" onClick={onEdit} />
-            : <AiOutlineSave size={25} className="cursor-pointer" onClick={onSave} />}
+            <GoPencil size={30} className="cursor-pointer" onClick={onEdit} />
+            : <AiOutlineSave size={30} className="cursor-pointer" onClick={onSave} />}
         </div>
         <div className="flex flex-col justify-center items-center overflow-y-scroll overflow-x-hidden">
           <input
@@ -83,44 +85,53 @@ export default function CredentialModal() {
 
         </div>
         <div
-          className="flex flex-row justify-center items-center w-11/12 h-[40px] rounded-md border-2 border-solid border-gray-800"
+          className="flex flex-row justify-center items-center w-11/12 h-[40px] rounded-md drop-shadow-lg"
         // style={{ backgroundColor: colors.primary}}
         >
           <button
-            className="w-3/12 h-[36px] flex justify-center items-center mx-2"
+            className="w-3/12 h-[36px] flex justify-center items-center mx-1"
             style={{
               borderRadius: "4px",
               backgroundColor: colors.quaternary,
             }}
           >
-            <BiSearchAlt size={30} />
+            <BiUser size={30} />
           </button>
           <button
-            className="w-3/12 h-[36px] flex justify-center items-center mx-2"
+            className="w-3/12 h-[36px] flex justify-center items-center mx-1"
             style={{
               borderRadius: "4px",
               backgroundColor: colors.quaternary,
             }}
           >
-            <BiSearchAlt size={30} />
+            <BiKey size={30} />
           </button>
           <button
-            className="w-3/12 h-[36px] flex justify-center items-center mx-2"
+            className="w-3/12 h-[36px] flex justify-center items-center mx-1"
             style={{
               borderRadius: "4px",
               backgroundColor: colors.quaternary,
             }}
           >
-            <BiSearchAlt size={30} />
+            <FiMail size={30} />
           </button>
           <button
-            className="w-3/12 h-[36px] flex justify-center items-center mx-2"
+            className="w-3/12 h-[36px] flex justify-center items-center mx-1"
             style={{
               borderRadius: "4px",
               backgroundColor: colors.quaternary,
             }}
           >
-            <BiSearchAlt size={30} />
+            <GoArrowUpRight size={30} />
+          </button>
+          <button
+            className="w-3/12 h-[36px] flex justify-center items-center mx-1 text-red-600"
+            style={{
+              borderRadius: "4px",
+              backgroundColor: colors.quaternary,
+            }}
+          >
+            <MdDelete size={30} />
           </button>
         </div>
       </div>

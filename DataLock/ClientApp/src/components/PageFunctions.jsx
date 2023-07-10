@@ -1,54 +1,52 @@
 import { useContext } from "react";
 import { ColorContext } from "../contexts";
-import { BiSearchAlt } from "react-icons/bi";
+import { BiSolidCog, BiPlusCircle } from "react-icons/bi";
+import { IoMdRefresh } from "react-icons/io";
+import { AiOutlineCloudSync } from "react-icons/ai";
 
 export default function PageFunctions() {
   const colors = useContext(ColorContext);
   return (
     <div
-      className="search-container px-10 items-center flex mt-3"
+      className="px-4 items-center flex mt-3 flex-row h-[65px] w-full flex-shrink-0"
       style={{ backgroundColor: colors.primary }}
     >
-      <div className="flex flex-row w-full justify-center">
-        {/* <input
-          className="h-[36px] w-10/12"
-          style={{ borderRadius: "4px 0 0 4px" }}
-        /> */}
+      <div className="flex flex-row w-full justify-between">
         <button
-          className="w-3/12 h-[36px] flex justify-center items-center mx-2"
+          className="w-2/12 h-[36px] flex justify-center items-center mx-2"
           style={{
             borderRadius: "4px",
             backgroundColor: colors.quaternary,
           }}
         >
-          <BiSearchAlt size={30}/>
+          <BiPlusCircle size={30}/>
         </button>
         <button
-          className="w-3/12 h-[36px] flex justify-center items-center mx-2"
+          className="w-2/12 h-[36px] flex justify-center items-center mx-2"
           style={{
             borderRadius: "4px",
             backgroundColor: colors.quaternary,
           }}
         >
-          <BiSearchAlt size={30}/>
+          <AiOutlineCloudSync size={30}/>
         </button>
         <button
-          className="w-3/12 h-[36px] flex justify-center items-center mx-2"
+          className="w-2/12 h-[36px] flex justify-center items-center mx-2"
           style={{
             borderRadius: "4px",
             backgroundColor: colors.quaternary,
           }}
         >
-          <BiSearchAlt size={30}/>
+          <IoMdRefresh size={30}/>
         </button>
         <button
-          className="w-3/12 h-[36px] flex justify-center items-center mx-2"
+          className="w-2/12 h-[36px] flex justify-center items-center mx-2"
           style={{
             borderRadius: "4px",
             backgroundColor: colors.quaternary,
           }}
         >
-          <BiSearchAlt size={30}/>
+          <BiSolidCog size={30}/>
         </button>
       </div>
     </div>
