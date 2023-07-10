@@ -1,16 +1,26 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { ColorContext } from "../contexts";
 import InfoContainer from "./InfoContainer";
-import { AiOutlineLeft } from "react-icons/ai";
+import { AiOutlineLeft, AiOutlineSave } from "react-icons/ai";
 import { GoPencil } from "react-icons/go";
 import { BiSearchAlt } from "react-icons/bi";
 
 export default function CredentialModal() {
+  // eslint-disable-next-line no-unused-vars
+  const [disabled, setDisabled] = useState(true);
   const colors = useContext(ColorContext);
+
+  const onEdit = () => {
+    setDisabled(false);
+  }
+  const onSave = () => {
+    // save updated credentials
+    setDisabled(true);
+  }
   return (
     <InfoContainer className="py-3">
       <div
-        className="w-10/12 h-full flex flex-col items-center rounded-lg border-b-2 border-gray-600 pb-2"
+        className="w-10/12 h-full flex flex-col justify-between items-center rounded-lg border-b-2 border-gray-600 py-2"
         style={{ backgroundColor: colors.tertiary }}
       >
         <div className="flex flex-row items-center justify-between w-11/12 mb-3 mt-3 drop-shadow-lg">
@@ -21,9 +31,10 @@ export default function CredentialModal() {
           >
             <span className="text-2xl">Name</span>
           </div>
-          <GoPencil size={25} className="cursor-pointer" />
+          {(disabled) ?
+            <GoPencil size={25} className="cursor-pointer" onClick={onEdit} />
+            : <AiOutlineSave size={25} className="cursor-pointer" onClick={onSave} />}
         </div>
-
         <div className="flex flex-col justify-center items-center overflow-y-scroll overflow-x-hidden">
           <input
             type="text"
@@ -69,49 +80,49 @@ export default function CredentialModal() {
             disabled={true}
             style={{ backgroundColor: colors.quaternary }}
           ></textarea>
-          
-          </div>
-          <div 
-            className="flex flex-row justify-center items-center w-11/12 h-[40px] rounded-md border-2 border-solid border-gray-800" 
-            // style={{ backgroundColor: colors.primary}}
+
+        </div>
+        <div
+          className="flex flex-row justify-center items-center w-11/12 h-[40px] rounded-md border-2 border-solid border-gray-800"
+        // style={{ backgroundColor: colors.primary}}
+        >
+          <button
+            className="w-3/12 h-[36px] flex justify-center items-center mx-2"
+            style={{
+              borderRadius: "4px",
+              backgroundColor: colors.quaternary,
+            }}
           >
-            <button
-          className="w-3/12 h-[36px] flex justify-center items-center mx-2"
-          style={{
-            borderRadius: "4px",
-            backgroundColor: colors.quaternary,
-          }}
-        >
-          <BiSearchAlt size={30}/>
-        </button>
-        <button
-          className="w-3/12 h-[36px] flex justify-center items-center mx-2"
-          style={{
-            borderRadius: "4px",
-            backgroundColor: colors.quaternary,
-          }}
-        >
-          <BiSearchAlt size={30}/>
-        </button>
-        <button
-          className="w-3/12 h-[36px] flex justify-center items-center mx-2"
-          style={{
-            borderRadius: "4px",
-            backgroundColor: colors.quaternary,
-          }}
-        >
-          <BiSearchAlt size={30}/>
-        </button>
-        <button
-          className="w-3/12 h-[36px] flex justify-center items-center mx-2"
-          style={{
-            borderRadius: "4px",
-            backgroundColor: colors.quaternary,
-          }}
-        >
-          <BiSearchAlt size={30}/>
-        </button>
-          </div>
+            <BiSearchAlt size={30} />
+          </button>
+          <button
+            className="w-3/12 h-[36px] flex justify-center items-center mx-2"
+            style={{
+              borderRadius: "4px",
+              backgroundColor: colors.quaternary,
+            }}
+          >
+            <BiSearchAlt size={30} />
+          </button>
+          <button
+            className="w-3/12 h-[36px] flex justify-center items-center mx-2"
+            style={{
+              borderRadius: "4px",
+              backgroundColor: colors.quaternary,
+            }}
+          >
+            <BiSearchAlt size={30} />
+          </button>
+          <button
+            className="w-3/12 h-[36px] flex justify-center items-center mx-2"
+            style={{
+              borderRadius: "4px",
+              backgroundColor: colors.quaternary,
+            }}
+          >
+            <BiSearchAlt size={30} />
+          </button>
+        </div>
       </div>
     </InfoContainer>
   );
