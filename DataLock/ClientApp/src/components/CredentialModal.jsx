@@ -106,7 +106,7 @@ export default function CredentialModal() {
               borderRadius: "4px",
               backgroundColor: colors.quaternary,
             }}
-            onClick={copyText("username")}
+            onClick={() => copyText("username")}
           >
             <BiUser size={30} />
           </button>
@@ -116,7 +116,7 @@ export default function CredentialModal() {
               borderRadius: "4px",
               backgroundColor: colors.quaternary,
             }}
-            onClick={copyText("password")}
+            onClick={() => copyText("password")}
           >
             <BiKey size={30} />
           </button>
@@ -126,7 +126,7 @@ export default function CredentialModal() {
               borderRadius: "4px",
               backgroundColor: colors.quaternary,
             }}
-            onClick={copyText("email")}
+            onClick={() => copyText("email")}
           >
             <FiMail size={30} />
           </button>
