@@ -42,28 +42,28 @@ export default function CredentialModal() {
             type="text"
             placeholder="Name"
             className="h-8 w-full rounded-sm shadow-md text-center m-2 focus:outline-none outline-none"
-            disabled={true}
+            disabled={disabled}
             style={{ backgroundColor: colors.quaternary }}
           />
           <input
             type="text"
             placeholder="Username"
             className="h-8 w-full rounded-sm shadow-md text-center m-2 focus:outline-none outline-none"
-            disabled={true}
+            disabled={disabled}
             style={{ backgroundColor: colors.quaternary }}
           />
           <input
             type="Email"
             placeholder="Email"
             className="h-8 w-full rounded-sm shadow-md text-center m-2 focus:outline-none outline-none"
-            disabled={true}
+            disabled={disabled}
             style={{ backgroundColor: colors.quaternary }}
           />
           <input
             type="password"
             placeholder="Password"
             className="h-8 w-full rounded-sm shadow-md text-center m-2 focus:outline-none outline-none"
-            disabled={true}
+            disabled={disabled}
             style={{ backgroundColor: colors.quaternary }}
             value="somerandomvalue"
           />
@@ -71,7 +71,7 @@ export default function CredentialModal() {
             type="url"
             placeholder="Url"
             className="h-8 w-full rounded-sm shadow-md text-center m-2 focus:outline-none outline-none"
-            disabled={true}
+            disabled={disabled}
             style={{ backgroundColor: colors.quaternary }}
           />
           <textarea
@@ -79,7 +79,7 @@ export default function CredentialModal() {
             rows={10}
             placeholder="Notes"
             className="w-full rounded-sm shadow-md text-center m-2 focus:outline-none outline-none"
-            disabled={true}
+            disabled={disabled}
             style={{ backgroundColor: colors.quaternary }}
           ></textarea>
 
