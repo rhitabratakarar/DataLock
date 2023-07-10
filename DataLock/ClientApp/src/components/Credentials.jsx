@@ -1,30 +1,28 @@
 import Credential from "./Credential";
 import InfoContainer from "./InfoContainer";
 
-export default function Credentials() {
+export default function Credentials({viewCredentialModal, passCredentialData}) {
 	return (
 		<InfoContainer>
-			<Credential />
-			<Credential />
-			<Credential />
-			<Credential />
-			<Credential />
-			<Credential />
-			<Credential />
-			<Credential />
-			<Credential />
-			<Credential />
-			<Credential />
-			<Credential />
-			<Credential />
-			<Credential />
-			<Credential />
-			<Credential />
-			<Credential />
-			<Credential />
-			<Credential />
-			<Credential />
-			<Credential />
+			<Credential viewCredentialModal={viewCredentialModal} passCredentialData={passCredentialData} />
+			<Credential viewCredentialModal={viewCredentialModal} passCredentialData={passCredentialData} />
+			<Credential viewCredentialModal={viewCredentialModal} passCredentialData={passCredentialData} />
+			<Credential viewCredentialModal={viewCredentialModal} passCredentialData={passCredentialData} />
+			<Credential viewCredentialModal={viewCredentialModal} passCredentialData={passCredentialData} />
+			<Credential viewCredentialModal={viewCredentialModal} passCredentialData={passCredentialData} />
+			<Credential viewCredentialModal={viewCredentialModal} passCredentialData={passCredentialData} />
+			<Credential viewCredentialModal={viewCredentialModal} passCredentialData={passCredentialData} />
+			<Credential viewCredentialModal={viewCredentialModal} passCredentialData={passCredentialData} />
+			<Credential viewCredentialModal={viewCredentialModal} passCredentialData={passCredentialData} />
+			<Credential viewCredentialModal={viewCredentialModal} passCredentialData={passCredentialData} />
+			<Credential viewCredentialModal={viewCredentialModal} passCredentialData={passCredentialData} />
+			<Credential viewCredentialModal={viewCredentialModal} passCredentialData={passCredentialData} />
+			<Credential viewCredentialModal={viewCredentialModal} passCredentialData={passCredentialData} />
+			<Credential viewCredentialModal={viewCredentialModal} passCredentialData={passCredentialData} />
+			<Credential viewCredentialModal={viewCredentialModal} passCredentialData={passCredentialData} />
+			<Credential viewCredentialModal={viewCredentialModal} passCredentialData={passCredentialData} />
+			<Credential viewCredentialModal={viewCredentialModal} passCredentialData={passCredentialData} />
+			<Credential viewCredentialModal={viewCredentialModal} passCredentialData={passCredentialData} />
 		</InfoContainer>
 	);
 }

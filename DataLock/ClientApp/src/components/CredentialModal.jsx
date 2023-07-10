@@ -7,7 +7,7 @@ import { FiMail } from "react-icons/fi";
 import { MdDelete } from "react-icons/md";
 import { BiUser, BiKey, } from "react-icons/bi";
 
-export default function CredentialModal() {
+export default function CredentialModal({viewCredentialList, credentialData}) {
   // eslint-disable-next-line no-unused-vars
   const [disabled, setDisabled] = useState(true);
   const colors = useContext(ColorContext);
@@ -32,7 +32,7 @@ export default function CredentialModal() {
         style={{ backgroundColor: colors.tertiary }}
       >
         <div className="flex flex-row items-center justify-between w-11/12 mb-3 mt-3 drop-shadow-lg">
-          <AiOutlineLeft size={30} className="cursor-pointer" />
+          <AiOutlineLeft size={30} className="cursor-pointer" onClick={() => viewCredentialList()}/>
           <div
             className="w-6/12 flex justify-center items-center rounded-md drop-shadow-lg h-full pb-1"
             style={{ backgroundColor: colors.primary, color: colors.quaternary }}

@@ -2,12 +2,13 @@
 import { ColorContext } from "../contexts";
 import { CgWebsite } from "react-icons/cg"
 
-export default function Credential() {
+export default function Credential({viewCredentialModal}) {
   const colors = useContext(ColorContext);
   return (
     <div
       className="w-10/12 h-[48px] min-h-[48px] flex flex-row justify-center items-center my-2 rounded-md cursor-pointer"
       style={{ backgroundColor: colors.quaternary }}
+      onClick={() => viewCredentialModal()}
     >
       <div className="flex flex-row w-7/12">
         <div className="flex items-center w-3/12 justify-center">
