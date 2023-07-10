@@ -1,6 +1,6 @@
 ﻿import { useContext, useEffect } from "react";
 import { ColorContext } from "../contexts";
-import { BiUser, BiLockOpen, BiWorld, BiKey } from "react-icons/bi"
+import { BiUser, BiBookOpen, BiWorld, BiKey } from "react-icons/bi"
 // import { GrView } from "react-icons/gr"
 
 export default function Credential({ viewCredentialModal, passCredentialData, credential }) {
@@ -26,7 +26,7 @@ export default function Credential({ viewCredentialModal, passCredentialData, cr
       <div className="flex flow-row justify-end items-center w-5/12">
         <BiUser size={30} className="mr-2 cursor-pointer"/>
         <BiKey size={30} className="mr-2 cursor-pointer" />
-        <BiLockOpen
+        <BiBookOpen
           size={30}
           className="mr-2 cursor-pointer"
           onClick={() => {

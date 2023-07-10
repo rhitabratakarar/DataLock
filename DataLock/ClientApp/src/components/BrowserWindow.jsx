@@ -6,7 +6,7 @@ import PageFunctions from "./PageFunctions";
 import CredentialModal from "./CredentialModal";
 
 export default function BrowserWindow() {
-	const [hidden, setHidden] = useState(true);
+	const [transition, setTransition] = useState("right-[100vw]");
 	const [credentialData, setCredentialData] = useState({
 		name: "",
 		username: "",
@@ -18,11 +18,13 @@ export default function BrowserWindow() {
 	const colors = useContext(ColorContext);
 
 	const viewCredentialModal = () => {
-		setHidden(false);
+		setTransition("right-0");
 	};
 
 	const viewCredentialList = () => {
-		setHidden(true);
+		setTransition("right-[100vw]");
+		// setHidden((prev) => !prev);
+		// setCname("left-[100vw]")
 	};
 
 	const passCredentialData = (data) => {
@@ -40,12 +42,23 @@ export default function BrowserWindow() {
 					<Credentials viewCredentialModal={viewCredentialModal} passCredentialData={passCredentialData} />
 					<PageFunctions />
 				</div>
-				<div
-					className="flex flex-col h-[calc(100vh-130px)] h-min-[calc(100vh-130px)] w-screen justify-center items-center md:w-[700px] relative -top-[calc(100vh-65px)] py-3"
-					style={{ backgroundColor: colors.tertiary }}
-					hidden={hidden}
-				>
-					<CredentialModal viewCredentialList={viewCredentialList} credentialData={credentialData} />
+				<div className="relative">
+					
+						<div
+							className={`flex flex-col h-[calc(100vh-130px)] h-min-[calc(100vh-130px)] w-screen justify-center items-center md:w-[700px] relative -top-[calc(100vh-65px)] py-3 z-auto transition-all duration-300 ease-in-out ${transition}`}
+							style={{ backgroundColor: colors.tertiary }}
+							// hidden={hidden}
+							// key={hidden}
+						>
+							<CredentialModal viewCredentialList={viewCredentialList} credentialData={credentialData} />
+						</div>
+
+
+					<div
+						className={`flex flex-col h-[calc(100vh-130px)] h-min-[calc(100vh-130px)] w-screen justify-center items-center md:w-[700px] relative -top-[calc(200vh-195px)] py-3 right-[100vw] transition-all duration-500 ease-linear z-auto`}
+						style={{ backgroundColor: colors.tertiary }}
+					>
+					</div>
 				</div>
 			</div>
 		) : (<></>)
