@@ -4,6 +4,7 @@ using DataLock.Db;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataLock.Migrations
 {
     [DbContext(typeof(CredentialDbContext))]
-    partial class CredentialDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230710073438_RecreateCredentialIdAsGuid")]
+    partial class RecreateCredentialIdAsGuid
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

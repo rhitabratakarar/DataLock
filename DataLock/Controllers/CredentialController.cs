@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using DataLockLib.Models;
+using DataLockLib.FactoryClasses;
 
 namespace DataLock.Controllers
 {
@@ -8,16 +10,15 @@ namespace DataLock.Controllers
     public class CredentialController : ControllerBase
     {
         [HttpGet]
-        public string Get()
+        [Route("sample-credential")]
+        public IList<Credential> Credentials()
         {
-            return "Success";
-        }
-
-        [HttpGet]
-        [Route("hello")]
-        public string SayHello()
-        {
-            return "hello";
+            Credential sampleCredential = new SampleCredentialFactory().GetSampleCredential();
+            IList<Credential> sampleCredentialList = new List<Credential>()
+            {
+                sampleCredential
+            };
+            return sampleCredentialList;
         }
     }
 }

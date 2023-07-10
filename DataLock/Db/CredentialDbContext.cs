@@ -18,8 +18,8 @@ namespace DataLock.Db
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<Credential>().HasKey(k => k.Id);
-            modelBuilder.Entity<Credential>().Property(p => p.Id).ValueGeneratedOnAdd();
+            modelBuilder.Entity<Credential>().HasKey(k => k.CredentialId);
+            modelBuilder.Entity<Credential>().Property(p => p.CredentialId).ValueGeneratedOnAdd();
         }
     }
 }
