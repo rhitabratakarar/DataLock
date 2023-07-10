@@ -7,7 +7,14 @@ import CredentialModal from "./CredentialModal";
 
 export default function BrowserWindow() {
 	const [hidden, setHidden] = useState(true);
-	const [credentialData, setCredentialData] = useState({});
+	const [credentialData, setCredentialData] = useState({
+		name: "",
+		username: "",
+		email: "",
+		password: "",
+		url: "",
+		notes: "",
+	});
 	const colors = useContext(ColorContext);
 
 	const viewCredentialModal = () => {
@@ -41,8 +48,6 @@ export default function BrowserWindow() {
 					<CredentialModal viewCredentialList={viewCredentialList} credentialData={credentialData} />
 				</div>
 			</div>
-
-
 		) : (<></>)
 	);
 }

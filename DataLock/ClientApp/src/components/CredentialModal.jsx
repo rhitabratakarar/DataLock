@@ -51,6 +51,7 @@ export default function CredentialModal({viewCredentialList, credentialData}) {
             className="h-8 w-full rounded-sm shadow-md text-center m-2 focus:outline-none outline-none"
             disabled={disabled}
             style={{ backgroundColor: colors.quaternary }}
+            value={credentialData.name}
           />
           <input
             id="username"
@@ -59,6 +60,7 @@ export default function CredentialModal({viewCredentialList, credentialData}) {
             className="h-8 w-full rounded-sm shadow-md text-center m-2 focus:outline-none outline-none"
             disabled={disabled}
             style={{ backgroundColor: colors.quaternary }}
+            value={credentialData.username}
           />
           <input
             id="email"
@@ -67,6 +69,7 @@ export default function CredentialModal({viewCredentialList, credentialData}) {
             className="h-8 w-full rounded-sm shadow-md text-center m-2 focus:outline-none outline-none"
             disabled={disabled}
             style={{ backgroundColor: colors.quaternary }}
+            value={credentialData.email}
           />
           <input
             id="password"
@@ -75,7 +78,7 @@ export default function CredentialModal({viewCredentialList, credentialData}) {
             className="h-8 w-full rounded-sm shadow-md text-center m-2 focus:outline-none outline-none"
             disabled={disabled}
             style={{ backgroundColor: colors.quaternary }}
-            value="somerandomvalue"
+            value={credentialData.password}
           />
           <input
             id="url"
@@ -84,6 +87,7 @@ export default function CredentialModal({viewCredentialList, credentialData}) {
             className="h-8 w-full rounded-sm shadow-md text-center m-2 focus:outline-none outline-none"
             disabled={disabled}
             style={{ backgroundColor: colors.quaternary }}
+            value={credentialData.url}
           />
           <textarea
             id="notes"
@@ -93,6 +97,7 @@ export default function CredentialModal({viewCredentialList, credentialData}) {
             className="w-full rounded-sm shadow-md text-center m-2 focus:outline-none outline-none"
             disabled={disabled}
             style={{ backgroundColor: colors.quaternary }}
+            value={credentialData.notes}
           ></textarea>
 
         </div>
