@@ -6,7 +6,7 @@ import PageFunctions from "./PageFunctions";
 import CredentialModal from "./CredentialModal";
 
 export default function BrowserWindow() {
-	const [transition, setTransition] = useState("right-[100vw]");
+	const [transition, setTransition] = useState("opacity-0 right-[100vw]");
 	const [credentialData, setCredentialData] = useState({
 		name: "",
 		username: "",
@@ -18,11 +18,11 @@ export default function BrowserWindow() {
 	const colors = useContext(ColorContext);
 
 	const viewCredentialModal = () => {
-		setTransition("right-0");
+		setTransition("opacity-100  right-0");
 	};
 
 	const viewCredentialList = () => {
-		setTransition("right-[100vw]");
+		setTransition("opacity-0 right-[100vw]");
 		// setHidden((prev) => !prev);
 		// setCname("left-[100vw]")
 	};
@@ -47,13 +47,9 @@ export default function BrowserWindow() {
 						<div
 							className={`flex flex-col h-[calc(100vh-130px)] h-min-[calc(100vh-130px)] w-screen justify-center items-center md:w-[700px] relative -top-[calc(100vh-65px)] py-3 z-auto transition-all duration-300 ease-in-out ${transition}`}
 							style={{ backgroundColor: colors.tertiary }}
-							// hidden={hidden}
-							// key={hidden}
 						>
 							<CredentialModal viewCredentialList={viewCredentialList} credentialData={credentialData} />
 						</div>
-
-
 					<div
 						className={`flex flex-col h-[calc(100vh-130px)] h-min-[calc(100vh-130px)] w-screen justify-center items-center md:w-[700px] relative -top-[calc(200vh-195px)] py-3 right-[100vw] transition-all duration-500 ease-linear z-auto`}
 						style={{ backgroundColor: colors.tertiary }}
