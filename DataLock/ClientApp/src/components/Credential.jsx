@@ -3,7 +3,7 @@ import { ColorContext } from "../contexts";
 import { BiUser, BiBookOpen, BiWorld, BiKey } from "react-icons/bi"
 // import { GrView } from "react-icons/gr"
 
-export default function Credential({ viewCredentialModal, passCredentialData, credential }) {
+export default function Credential({ viewCredentialModal, passCredentialData, refreshCredentialModal }) {
   const colors = useContext(ColorContext);
   useEffect(() => {
     // add database access code to get credential data and call {passCredentialData}
@@ -30,6 +30,7 @@ export default function Credential({ viewCredentialModal, passCredentialData, cr
           size={30}
           className="mr-2 cursor-pointer"
           onClick={() => {
+            refreshCredentialModal();
             viewCredentialModal();
             passCredentialData({
               name: "Vikram",

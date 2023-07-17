@@ -8,8 +8,13 @@ import { MdDelete } from "react-icons/md";
 import { BiUser, BiKey, } from "react-icons/bi";
 
 export default function CredentialModal({viewCredentialList, credentialData}) {
-  // eslint-disable-next-line no-unused-vars
   const [disabled, setDisabled] = useState(true);
+  const [name, setName] = useState(credentialData.name);
+  const [username, setUsername] = useState(credentialData.username);
+  const [password, setPassword] = useState(credentialData.password);
+  const [email, setEmail] = useState(credentialData.email);
+  const [url, setURL] = useState(credentialData.url);
+  const [notes, setNotes] = useState(credentialData.notes);
   const colors = useContext(ColorContext);
 
   const onEdit = () => {
@@ -26,7 +31,7 @@ export default function CredentialModal({viewCredentialList, credentialData}) {
   }
   
   return (
-    <InfoContainer className="py-3">
+    <InfoContainer className="py-3" >
       <div
         className="w-10/12 h-full flex flex-col justify-between items-center rounded-lg border-b-2 border-gray-600 py-2"
         style={{ backgroundColor: colors.tertiary }}
@@ -51,7 +56,8 @@ export default function CredentialModal({viewCredentialList, credentialData}) {
             className="h-8 w-full rounded-sm shadow-md text-center m-2 focus:outline-none outline-none"
             disabled={disabled}
             style={{ backgroundColor: colors.quaternary }}
-            value={credentialData.name}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
           />
           <input
             id="username"
@@ -60,7 +66,8 @@ export default function CredentialModal({viewCredentialList, credentialData}) {
             className="h-8 w-full rounded-sm shadow-md text-center m-2 focus:outline-none outline-none"
             disabled={disabled}
             style={{ backgroundColor: colors.quaternary }}
-            value={credentialData.username}
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
           />
           <input
             id="email"
@@ -69,7 +76,8 @@ export default function CredentialModal({viewCredentialList, credentialData}) {
             className="h-8 w-full rounded-sm shadow-md text-center m-2 focus:outline-none outline-none"
             disabled={disabled}
             style={{ backgroundColor: colors.quaternary }}
-            value={credentialData.email}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <input
             id="password"
@@ -78,7 +86,8 @@ export default function CredentialModal({viewCredentialList, credentialData}) {
             className="h-8 w-full rounded-sm shadow-md text-center m-2 focus:outline-none outline-none"
             disabled={disabled}
             style={{ backgroundColor: colors.quaternary }}
-            value={credentialData.password}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
           <input
             id="url"
@@ -87,7 +96,8 @@ export default function CredentialModal({viewCredentialList, credentialData}) {
             className="h-8 w-full rounded-sm shadow-md text-center m-2 focus:outline-none outline-none"
             disabled={disabled}
             style={{ backgroundColor: colors.quaternary }}
-            value={credentialData.url}
+            value={url}
+            onChange={(e) => setURL(e.target.value)}
           />
           <textarea
             id="notes"
@@ -97,7 +107,8 @@ export default function CredentialModal({viewCredentialList, credentialData}) {
             className="w-full rounded-sm shadow-md text-center m-2 focus:outline-none outline-none"
             disabled={disabled}
             style={{ backgroundColor: colors.quaternary }}
-            value={credentialData.notes}
+            value={notes}
+            onChange={(e) => setNotes(e.target.value)}
           ></textarea>
 
         </div>
