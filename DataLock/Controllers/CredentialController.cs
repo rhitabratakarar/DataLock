@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using DataLockLib.Models;
 using DataLockLib.FactoryClasses;
+using DataLock.Db;
 
 namespace DataLock.Controllers
 {
@@ -9,6 +10,13 @@ namespace DataLock.Controllers
     [ApiController]
     public class CredentialController : ControllerBase
     {
+        private readonly CredentialDbContext _context;
+
+        public CredentialController(CredentialDbContext dbContext)
+        {
+            _context = dbContext;
+        }
+
         [HttpGet]
         [Route("sample-credential")]
         public IList<Credential> Credentials()
@@ -19,6 +27,13 @@ namespace DataLock.Controllers
                 sampleCredential
             };
             return sampleCredentialList;
+        }
+
+        [HttpGet]
+        [Route("all")]
+        public IList<Credential> GetAllCredentials()
+        {
+            return _context.Credential.ToList();
         }
     }
 }
