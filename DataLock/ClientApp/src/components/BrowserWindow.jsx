@@ -5,10 +5,12 @@ import Credentials from "./Credentials";
 import PageFunctions from "./PageFunctions";
 import CredentialModal from "./CredentialModal";
 import AddCredentialModal from "./AddCredentialModal";
+import SettingsModal from "./SettingsModal";
 
 export default function BrowserWindow() {
 	const [credentialModalTransition, setCredentialModalTransition] = useState("opacity-0 right-[100vw]");
 	const [addCredentialModalTransition, setAddCredentialModalTransition] = useState("opacity-0 right-[100vw]");
+	const [settingsModalTransition, setSettingsModalTransition] = useState("opacity-0 right-[100vw]");
 	const [refresh, setRefresh] = useState(0);
 	const [credentialData, setCredentialData] = useState({
 		name: "",
@@ -25,13 +27,17 @@ export default function BrowserWindow() {
 	};
 
 	const viewAddCredentialModal = () => {
-		console.log("opacity");
 		setAddCredentialModalTransition("opacity-100 right-0");
+	};
+
+	const viewSettingsModal = () => {
+		setSettingsModalTransition("opacity-100 right-0");
 	};
 
 	const viewCredentialList = () => {
 		setCredentialModalTransition("opacity-0 right-[100vw]");
 		setAddCredentialModalTransition("opacity-0 right-[100vw]");
+		setSettingsModalTransition("opacity-0 right-[100vw]");
 	};
 
 	const passCredentialData = (data) => {
@@ -55,7 +61,7 @@ export default function BrowserWindow() {
 						passCredentialData={passCredentialData}
 						refreshCredentialModal={refreshCredentialModal}
 					/>
-					<PageFunctions viewAddCredentialModal={viewAddCredentialModal} />
+					<PageFunctions viewAddCredentialModal={viewAddCredentialModal} viewSettingsModal={viewSettingsModal} />
 				</div>
 				<div className="relative">
 					<div
@@ -69,6 +75,12 @@ export default function BrowserWindow() {
 						style={{ backgroundColor: colors.tertiary }}
 					>
 						<AddCredentialModal viewCredentialList={viewCredentialList} />
+					</div>
+					<div
+						className={`flex flex-col h-[calc(100vh-130px)] h-min-[calc(100vh-130px)] w-screen justify-center items-center md:w-[700px] relative -top-[calc(300vh-325px)] py-3 transition-all duration-300 ease-in-out z-auto ${settingsModalTransition}`}
+						style={{ backgroundColor: colors.tertiary }}
+					>
+						<SettingsModal viewCredentialList={viewCredentialList} />
 					</div>
 				</div>
 			</div>
