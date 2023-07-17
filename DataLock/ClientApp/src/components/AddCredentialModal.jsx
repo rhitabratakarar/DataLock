@@ -2,33 +2,20 @@ import { useContext, useState } from "react";
 import { ColorContext } from "../contexts";
 import InfoContainer from "./InfoContainer";
 import { AiOutlineLeft, AiOutlineSave } from "react-icons/ai";
-import { GoPencil, GoArrowUpRight } from "react-icons/go";
-import { FiMail } from "react-icons/fi";
-import { MdDelete } from "react-icons/md";
-import { BiUser, BiKey, } from "react-icons/bi";
 
-export default function CredentialModal({viewCredentialList, credentialData}) {
-  const [disabled, setDisabled] = useState(true);
-  const [name, setName] = useState(credentialData.name);
-  const [username, setUsername] = useState(credentialData.username);
-  const [password, setPassword] = useState(credentialData.password);
-  const [email, setEmail] = useState(credentialData.email);
-  const [url, setURL] = useState(credentialData.url);
-  const [notes, setNotes] = useState(credentialData.notes);
+export default function AddCredentialModal({viewCredentialList}) {
+  const [name, setName] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [url, setURL] = useState("");
+  const [notes, setNotes] = useState("");
   const colors = useContext(ColorContext);
 
-  const onEdit = () => {
-    setDisabled(false);
-  }
   const onSave = () => {
-    setDisabled(true);
+    // submit to server
   }
 
-  const copyText = (id) => {
-    const elementText = document.getElementById(id).value;
-    navigator.clipboard.writeText(elementText);
-  }
-  
   return (
     <InfoContainer className="py-3" >
       <div
@@ -43,9 +30,7 @@ export default function CredentialModal({viewCredentialList, credentialData}) {
           >
             <span className="text-2xl">Name</span>
           </div>
-          {(disabled) ?
-            <GoPencil size={30} className="cursor-pointer" onClick={onEdit} />
-            : <AiOutlineSave size={30} className="cursor-pointer" onClick={onSave} />}
+          <AiOutlineSave size={30} />
         </div>
         <div className="flex flex-col justify-center items-center overflow-y-scroll overflow-x-hidden">
           <input
@@ -53,7 +38,6 @@ export default function CredentialModal({viewCredentialList, credentialData}) {
             type="text"
             placeholder="Name"
             className="h-8 w-full rounded-sm shadow-md text-center m-2 focus:outline-none outline-none"
-            disabled={disabled}
             style={{ backgroundColor: colors.quaternary }}
             value={name}
             onChange={(e) => setName(e.target.value)}
@@ -63,7 +47,6 @@ export default function CredentialModal({viewCredentialList, credentialData}) {
             type="text"
             placeholder="Username"
             className="h-8 w-full rounded-sm shadow-md text-center m-2 focus:outline-none outline-none"
-            disabled={disabled}
             style={{ backgroundColor: colors.quaternary }}
             value={username}
             onChange={(e) => setUsername(e.target.value)}
@@ -73,7 +56,6 @@ export default function CredentialModal({viewCredentialList, credentialData}) {
             type="Email"
             placeholder="Email"
             className="h-8 w-full rounded-sm shadow-md text-center m-2 focus:outline-none outline-none"
-            disabled={disabled}
             style={{ backgroundColor: colors.quaternary }}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -83,7 +65,6 @@ export default function CredentialModal({viewCredentialList, credentialData}) {
             type="password"
             placeholder="Password"
             className="h-8 w-full rounded-sm shadow-md text-center m-2 focus:outline-none outline-none"
-            disabled={disabled}
             style={{ backgroundColor: colors.quaternary }}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -93,7 +74,6 @@ export default function CredentialModal({viewCredentialList, credentialData}) {
             type="url"
             placeholder="Url"
             className="h-8 w-full rounded-sm shadow-md text-center m-2 focus:outline-none outline-none"
-            disabled={disabled}
             style={{ backgroundColor: colors.quaternary }}
             value={url}
             onChange={(e) => setURL(e.target.value)}
@@ -104,7 +84,6 @@ export default function CredentialModal({viewCredentialList, credentialData}) {
             rows={10}
             placeholder="Notes"
             className="w-full rounded-sm shadow-md text-center m-2 focus:outline-none outline-none"
-            disabled={disabled}
             style={{ backgroundColor: colors.quaternary }}
             value={notes}
             onChange={(e) => setNotes(e.target.value)}
@@ -120,50 +99,9 @@ export default function CredentialModal({viewCredentialList, credentialData}) {
               borderRadius: "4px",
               backgroundColor: colors.quaternary,
             }}
-            onClick={() => copyText("username")}
+            onClick={() => onSave("username")}
           >
-            <BiUser size={30} />
-          </button>
-          <button
-            className="w-3/12 h-[36px] flex justify-center items-center mx-1"
-            style={{
-              borderRadius: "4px",
-              backgroundColor: colors.quaternary,
-            }}
-            onClick={() => copyText("password")}
-          >
-            <BiKey size={30} />
-          </button>
-          <button
-            className="w-3/12 h-[36px] flex justify-center items-center mx-1"
-            style={{
-              borderRadius: "4px",
-              backgroundColor: colors.quaternary,
-            }}
-            onClick={() => copyText("email")}
-          >
-            <FiMail size={30} />
-          </button>
-          <button
-            className="w-3/12 h-[36px] flex justify-center items-center mx-1"
-            style={{
-              borderRadius: "4px",
-              backgroundColor: colors.quaternary,
-            }}
-            onClick={() => {
-              window.open(document.getElementById("url").value, "_blank");
-            }}
-          >
-            <GoArrowUpRight size={30} />
-          </button>
-          <button
-            className="w-3/12 h-[36px] flex justify-center items-center mx-1 text-red-600"
-            style={{
-              borderRadius: "4px",
-              backgroundColor: colors.quaternary,
-            }}
-          >
-            <MdDelete size={30} />
+            Submit
           </button>
         </div>
       </div>

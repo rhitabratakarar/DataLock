@@ -9,9 +9,9 @@ export default function Display() {
     const [colors, setColors] = useState(colorPallete);
     return (
       <ColorContext.Provider value={colors}>
-      <div className="w-screen h-screen flex justify-center items-center" style={{ backgroundColor: colors.tertiary }}>
-        <BrowserWindow />
-      </div>
+        <div className="w-screen h-screen flex justify-center items-center" style={{ backgroundColor: colors.tertiary }}>
+          <BrowserWindow />
+        </div>
       </ColorContext.Provider>
     );
 }

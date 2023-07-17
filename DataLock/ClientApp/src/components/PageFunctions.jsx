@@ -4,7 +4,7 @@ import { BiSolidCog, BiPlusCircle } from "react-icons/bi";
 import { IoMdRefresh } from "react-icons/io";
 import { AiOutlineCloudSync } from "react-icons/ai";
 
-export default function PageFunctions() {
+export default function PageFunctions({viewAddCredentialModal}) {
   const colors = useContext(ColorContext);
   return (
     <div
@@ -18,6 +18,7 @@ export default function PageFunctions() {
             borderRadius: "4px",
             backgroundColor: colors.quaternary,
           }}
+          onClick={() => viewAddCredentialModal()}
         >
           <BiPlusCircle size={30}/>
         </button>

@@ -1,7 +1,6 @@
 ﻿import { useContext, useEffect } from "react";
 import { ColorContext } from "../contexts";
 import { BiUser, BiBookOpen, BiWorld, BiKey } from "react-icons/bi"
-// import { GrView } from "react-icons/gr"
 
 export default function Credential({ viewCredentialModal, passCredentialData, refreshCredentialModal }) {
   const colors = useContext(ColorContext);
