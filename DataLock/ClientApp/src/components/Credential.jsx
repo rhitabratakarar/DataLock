@@ -9,7 +9,7 @@ export default function Credential({ viewCredentialModal, passCredentialData, re
   });
   return (
     <div
-      className="w-10/12 h-[48px] min-h-[48px] flex flex-row justify-center items-center my-2 rounded-md"
+      className="w-10/12 h-[80px] min-h-[80px] flex flex-row justify-center items-center my-3 rounded-md shadow-lg px-3"
       style={{ backgroundColor: colors.quaternary }}
     >
       <div className="flex flex-row w-7/12">

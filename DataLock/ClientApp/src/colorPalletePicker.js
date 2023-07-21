@@ -1,5 +1,5 @@
 function getColorPallete(url) {
-  let originalString = "27374d526d829db2bfdde6ed";
+  let originalString = "c4dfdfd2e9e9e3f4f4f8f6f4";
   const substrings = [];
 
   if (url) {

@@ -3,7 +3,7 @@ import InfoContainer from "./InfoContainer";
 
 export default function Credentials({viewCredentialModal, passCredentialData, refreshCredentialModal}) {
 	return (
-		<InfoContainer className="pt-2 pb-3">
+		<InfoContainer className="pt-2 pb-3 hidden-scrollbar">
 			<Credential
 				viewCredentialModal={viewCredentialModal}
 				passCredentialData={passCredentialData}
