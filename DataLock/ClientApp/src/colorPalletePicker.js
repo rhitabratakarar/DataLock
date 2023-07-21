@@ -1,5 +1,5 @@
 function getColorPalleteStringFromURL(url) {
-  let originalString = "ffffffffffffffffffffffff";
+  let originalString = "f11a7b9821763e001fffe5ad";
   
   if (url) {
     const stringList = url.split("/");

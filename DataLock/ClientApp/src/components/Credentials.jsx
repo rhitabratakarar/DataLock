@@ -3,7 +3,42 @@ import InfoContainer from "./InfoContainer";
 
 export default function Credentials({viewCredentialModal, passCredentialData, refreshCredentialModal}) {
 	return (
-		<InfoContainer className="pt-2 pb-3 hidden-scrollbar">
+		<InfoContainer className="pt-[70px] pb-3 hidden-scrollbar">
+			<Credential
+				viewCredentialModal={viewCredentialModal}
+				passCredentialData={passCredentialData}
+				refreshCredentialModal={refreshCredentialModal}
+			/>
+			<Credential
+				viewCredentialModal={viewCredentialModal}
+				passCredentialData={passCredentialData}
+				refreshCredentialModal={refreshCredentialModal}
+			/>
+			<Credential
+				viewCredentialModal={viewCredentialModal}
+				passCredentialData={passCredentialData}
+				refreshCredentialModal={refreshCredentialModal}
+			/>
+			<Credential
+				viewCredentialModal={viewCredentialModal}
+				passCredentialData={passCredentialData}
+				refreshCredentialModal={refreshCredentialModal}
+			/>
+			<Credential
+				viewCredentialModal={viewCredentialModal}
+				passCredentialData={passCredentialData}
+				refreshCredentialModal={refreshCredentialModal}
+			/>
+			<Credential
+				viewCredentialModal={viewCredentialModal}
+				passCredentialData={passCredentialData}
+				refreshCredentialModal={refreshCredentialModal}
+			/>
+			<Credential
+				viewCredentialModal={viewCredentialModal}
+				passCredentialData={passCredentialData}
+				refreshCredentialModal={refreshCredentialModal}
+			/>
 			<Credential
 				viewCredentialModal={viewCredentialModal}
 				passCredentialData={passCredentialData}

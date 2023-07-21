@@ -11,4 +11,9 @@
 .hidden-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
-} 
+}
+
+/* .credential-search {
+  backdrop-filter: blur(12px);
+  background: linear-gradient(180deg, #c4dfdf00, #c4dfdf);
+} */
