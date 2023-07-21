@@ -1,7 +1,6 @@
-function getColorPallete(url) {
-  let originalString = "c4dfdfd2e9e9e3f4f4f8f6f4";
-  const substrings = [];
-
+function getColorPalleteStringFromURL(url) {
+  let originalString = "ffffffffffffffffffffffff";
+  
   if (url) {
     const stringList = url.split("/");
     for (let index in stringList) {
@@ -11,6 +10,13 @@ function getColorPallete(url) {
     }
   }
 
+  return originalString;
+}
+
+function getColorPallete(string, url) {
+  let originalString = getColorPalleteStringFromURL(url);
+  if (string) originalString = string;
+  const substrings = [];
   const substringLength = Math.ceil(originalString.length / 4);
 
   for (let i = 0; i < originalString.length; i += substringLength) {
