@@ -13,7 +13,7 @@ export default function CredentialSearch() {
   return (
     <div
       id="search"
-      className="w-[calc(100vw+100px)] min-w-[calc(100vw+100px)] h-[85px] min-h-[85px] items-center flex md:rounded-md md:mt-3 absolute -top-[30px] bg-transparent overflow-hidden"
+      className="w-[calc(100vw+100px)] min-w-[calc(100vw+100px)] h-[85px] min-h-[85px] items-center flex md:rounded-md md:mt-3 absolute -top-[40px] bg-transparent overflow-hidden"
       style={{ backgroundColor: colors.primary }}
     >
     </div>

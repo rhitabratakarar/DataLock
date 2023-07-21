@@ -52,7 +52,7 @@ export default function BrowserWindow() {
 		(colors.hasOwnProperty("primary")) ? (
 			<div className="flex flex-col items-center h-screen min-h-screen overflow-hidden">
 				<div
-					className="flex flex-col h-full w-screen justify-center items-center md:w-[700px]"
+					className="flex flex-col h-full w-screen justify-center items-center md:w-[700px] relative"
 					style={{ backgroundColor: colors.tertiary }}
 				>
 					<CredentialSearch />
