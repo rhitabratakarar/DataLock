@@ -32,7 +32,7 @@ export default function CredentialModal({viewCredentialList, credentialData}) {
   return (
     <InfoContainer className="py-3" >
       <div
-        className="w-10/12 h-full flex flex-col justify-between items-center rounded-lg border-b-2 border-gray-600 py-2"
+        className="w-full h-full flex flex-col justify-between items-center rounded-lg border-b-2 border-gray-600 py-2"
         style={{ backgroundColor: colors.tertiary }}
       >
         <div className="flex flex-row items-center justify-between w-11/12 mb-3 mt-3 drop-shadow-lg">
@@ -48,6 +48,7 @@ export default function CredentialModal({viewCredentialList, credentialData}) {
             : <AiOutlineSave size={30} className="cursor-pointer" onClick={onSave} />}
         </div>
         <div className="flex flex-col justify-center items-center overflow-y-scroll overflow-x-hidden">
+          <label className="self-start">Name</label>
           <input
             id="name"
             type="text"
@@ -58,6 +59,7 @@ export default function CredentialModal({viewCredentialList, credentialData}) {
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
+          <label className="self-start">Username</label>
           <input
             id="username"
             type="text"
@@ -68,6 +70,7 @@ export default function CredentialModal({viewCredentialList, credentialData}) {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
+          <label className="self-start">Email</label>
           <input
             id="email"
             type="Email"
@@ -78,6 +81,7 @@ export default function CredentialModal({viewCredentialList, credentialData}) {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
+          <label className="self-start">Password</label>
           <input
             id="password"
             type="password"
@@ -88,6 +92,7 @@ export default function CredentialModal({viewCredentialList, credentialData}) {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
+          <label className="self-start">URL</label>
           <input
             id="url"
             type="url"
@@ -98,6 +103,7 @@ export default function CredentialModal({viewCredentialList, credentialData}) {
             value={url}
             onChange={(e) => setURL(e.target.value)}
           />
+          <label>Notes</label>
           <textarea
             id="notes"
             cols={20}

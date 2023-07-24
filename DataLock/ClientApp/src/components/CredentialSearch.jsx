@@ -1,8 +1,7 @@
 import { useContext, useEffect } from "react";
 import { ColorContext } from "../contexts";
-// import { BiSearchAlt } from "react-icons/bi";
 
-export default function CredentialSearch() {
+export default function TopOverlay() {
   const colors = useContext(ColorContext);
   useEffect(() => {
     const searchBox = document.getElementById("search");
@@ -13,7 +12,7 @@ export default function CredentialSearch() {
   return (
     <div
       id="search"
-      className="w-[calc(100vw+100px)] min-w-[calc(100vw+100px)] h-[85px] min-h-[85px] items-center flex md:rounded-md md:mt-3 absolute -top-[120px] bg-transparent overflow-hidden"
+      className="w-[calc(100vw+100px)] min-w-[calc(100vw+100px)] h-[85px] min-h-[85px] items-center flex md:rounded-md md:mt-3 absolute -top-[120px] bg-transparent overflow-hidden z-0"
       style={{ backgroundColor: colors.primary }}
     >
     </div>

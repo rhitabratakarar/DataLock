@@ -1,4 +1,4 @@
-import CredentialSearch from "./CredentialSearch";
+import TopOverlay from "./CredentialSearch";
 import { ColorContext } from "../contexts";
 import { useContext, useState } from 'react';
 import Credentials from "./Credentials";
@@ -6,6 +6,7 @@ import PageFunctions from "./PageFunctions";
 import CredentialModal from "./CredentialModal";
 import AddCredentialModal from "./AddCredentialModal";
 import SettingsModal from "./SettingsModal";
+import LogoAndSearch from "./LogoAndSearch";
 
 export default function BrowserWindow() {
 	const [credentialModalTransition, setCredentialModalTransition] = useState("opacity-0 right-[100vw]");
@@ -55,13 +56,18 @@ export default function BrowserWindow() {
 					className="flex flex-col h-full w-screen justify-center items-center md:w-[700px] relative"
 					style={{ backgroundColor: colors.tertiary }}
 				>
-					<CredentialSearch />
+					<LogoAndSearch/>
+					<TopOverlay />
 					<Credentials
 						viewCredentialModal={viewCredentialModal}
 						passCredentialData={passCredentialData}
 						refreshCredentialModal={refreshCredentialModal}
 					/>
-					<PageFunctions viewAddCredentialModal={viewAddCredentialModal} viewSettingsModal={viewSettingsModal} />
+					<PageFunctions
+						viewAddCredentialModal={viewAddCredentialModal} 
+						viewSettingsModal={viewSettingsModal} 
+						viewCredentialList={viewCredentialList}
+					/>
 				</div>
 				<div className="relative">
 					<div

@@ -18,7 +18,7 @@ export default function Credential({ viewCredentialModal, passCredentialData, re
         </div>
 
         <div className="flex flex-col justify-center items-start w-9/12 pl-2">
-          <span>Name</span>
+          <span className="text-lg">Name</span>
           <span>username</span>
         </div>
       </div>
