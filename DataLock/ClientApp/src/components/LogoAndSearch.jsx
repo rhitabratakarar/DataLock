@@ -10,15 +10,21 @@ export default function LogoAndSearch() {
     searchBox.style.background = `linear-gradient(180deg, ${colors.primary}00, ${colors.primary})`;
   });
   return (
-    <div id="logoandsearch" className="w-[calc(100vw+100px)] min-w-[calc(100vw+100px)] h-[85px] min-h-[85px] items-center flex md:rounded-md md:mt-3 absolute top-0 z-10 px-[5.5rem] justify-between">
+    <div
+      id="logoandsearch"
+      className="w-[calc(100vw+100px)] min-w-[calc(100vw+100px)] h-[85px] min-h-[85px] items-center flex md:rounded-md md:mt-3 absolute top-0 z-10 px-[5.5rem] justify-between"
+    >
       <img src="../icons/favicon.ico" alt="icon" />
       <input
-          type="text" 
-          className="bg-transparent w-full focus:outline-none text-right text-transparent pr-[0.1rem]"
-          style={{textShadow: `0 0 0 ${colors.quaternary}`}}
-        />
-      <div id="search-input" className="border-r-2 border-solid w-1 h-2/6" style={{borderColor: colors.quaternary}}>
-      </div>
+        type="text"
+        className="bg-transparent w-full focus:outline-none text-right text-transparent pr-[0.1rem]"
+        style={{ textShadow: `0 0 0 ${colors.quaternary}` }}
+      />
+      <div
+        id="search-input"
+        className="border-r-2 border-solid w-1 h-2/6"
+        style={{ borderColor: colors.quaternary }}
+      ></div>
     </div>
   );
 }

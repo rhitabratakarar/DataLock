@@ -5,9 +5,12 @@ import { AiOutlineLeft, AiOutlineSave } from "react-icons/ai";
 import { GoPencil, GoArrowUpRight } from "react-icons/go";
 import { FiMail } from "react-icons/fi";
 import { MdDelete } from "react-icons/md";
-import { BiUser, BiKey, } from "react-icons/bi";
+import { BiUser, BiKey } from "react-icons/bi";
 
-export default function CredentialModal({viewCredentialList, credentialData}) {
+export default function CredentialModal({
+  viewCredentialList,
+  credentialData,
+}) {
   const [disabled, setDisabled] = useState(true);
   const [name, setName] = useState(credentialData.name);
   const [username, setUsername] = useState(credentialData.username);
@@ -19,33 +22,46 @@ export default function CredentialModal({viewCredentialList, credentialData}) {
 
   const onEdit = () => {
     setDisabled(false);
-  }
+  };
   const onSave = () => {
     setDisabled(true);
-  }
+  };
 
   const copyText = (id) => {
     const elementText = document.getElementById(id).value;
     navigator.clipboard.writeText(elementText);
-  }
-  
+  };
+
   return (
-    <InfoContainer className="py-3" >
+    <InfoContainer className="py-3">
       <div
         className="w-full h-full flex flex-col justify-between items-center rounded-lg border-b-2 border-gray-600 py-2"
         style={{ backgroundColor: colors.tertiary }}
       >
         <div className="flex flex-row items-center justify-between w-11/12 mb-3 mt-3 drop-shadow-lg">
-          <AiOutlineLeft size={30} className="cursor-pointer" onClick={() => viewCredentialList()}/>
+          <AiOutlineLeft
+            size={30}
+            className="cursor-pointer"
+            onClick={() => viewCredentialList()}
+          />
           <div
             className="w-6/12 flex justify-center items-center rounded-md drop-shadow-lg h-full pb-1"
-            style={{ backgroundColor: colors.primary, color: colors.quaternary }}
+            style={{
+              backgroundColor: colors.primary,
+              color: colors.quaternary,
+            }}
           >
             <span className="text-2xl">Name</span>
           </div>
-          {(disabled) ?
+          {disabled ? (
             <GoPencil size={30} className="cursor-pointer" onClick={onEdit} />
-            : <AiOutlineSave size={30} className="cursor-pointer" onClick={onSave} />}
+          ) : (
+            <AiOutlineSave
+              size={30}
+              className="cursor-pointer"
+              onClick={onSave}
+            />
+          )}
         </div>
         <div className="flex flex-col justify-center items-center overflow-y-scroll overflow-x-hidden">
           <label className="self-start">Name</label>
@@ -115,11 +131,8 @@ export default function CredentialModal({viewCredentialList, credentialData}) {
             value={notes}
             onChange={(e) => setNotes(e.target.value)}
           ></textarea>
-
         </div>
-        <div
-          className="flex flex-row justify-center items-center w-11/12 h-[40px] rounded-md drop-shadow-lg"
-        >
+        <div className="flex flex-row justify-center items-center w-11/12 h-[40px] rounded-md drop-shadow-lg">
           <button
             className="w-3/12 h-[36px] flex justify-center items-center mx-1"
             style={{

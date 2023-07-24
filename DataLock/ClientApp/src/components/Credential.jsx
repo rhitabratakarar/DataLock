@@ -1,8 +1,12 @@
 ﻿import { useContext, useEffect } from "react";
 import { ColorContext } from "../contexts";
-import { BiUser, BiBookOpen, BiWorld, BiKey } from "react-icons/bi"
+import { BiUser, BiBookOpen, BiWorld, BiKey } from "react-icons/bi";
 
-export default function Credential({ viewCredentialModal, passCredentialData, refreshCredentialModal }) {
+export default function Credential({
+  viewCredentialModal,
+  passCredentialData,
+  refreshCredentialModal,
+}) {
   const colors = useContext(ColorContext);
   useEffect(() => {
     // add database access code to get credential data and call {passCredentialData}
@@ -23,7 +27,7 @@ export default function Credential({ viewCredentialModal, passCredentialData, re
         </div>
       </div>
       <div className="flex flow-row justify-end items-center w-5/12">
-        <BiUser size={30} className="mr-2 cursor-pointer"/>
+        <BiUser size={30} className="mr-2 cursor-pointer" />
         <BiKey size={30} className="mr-2 cursor-pointer" />
         <BiBookOpen
           size={30}

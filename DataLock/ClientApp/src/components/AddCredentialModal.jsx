@@ -3,7 +3,7 @@ import { ColorContext } from "../contexts";
 import InfoContainer from "./InfoContainer";
 import { AiOutlineLeft, AiOutlineSave } from "react-icons/ai";
 
-export default function AddCredentialModal({viewCredentialList}) {
+export default function AddCredentialModal({ viewCredentialList }) {
   const [name, setName] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -14,19 +14,26 @@ export default function AddCredentialModal({viewCredentialList}) {
 
   const onSave = () => {
     // submit to server
-  }
+  };
 
   return (
-    <InfoContainer className="py-3" >
+    <InfoContainer className="py-3">
       <div
         className="w-10/12 h-full flex flex-col justify-between items-center rounded-lg border-b-2 border-gray-600 py-2"
         style={{ backgroundColor: colors.tertiary }}
       >
         <div className="flex flex-row items-center justify-between w-11/12 mb-3 mt-3 drop-shadow-lg">
-          <AiOutlineLeft size={30} className="cursor-pointer" onClick={() => viewCredentialList()}/>
+          <AiOutlineLeft
+            size={30}
+            className="cursor-pointer"
+            onClick={() => viewCredentialList()}
+          />
           <div
             className="w-6/12 flex justify-center items-center rounded-md drop-shadow-lg h-full pb-1"
-            style={{ backgroundColor: colors.primary, color: colors.quaternary }}
+            style={{
+              backgroundColor: colors.primary,
+              color: colors.quaternary,
+            }}
           >
             <span className="text-2xl">Name</span>
           </div>
@@ -88,11 +95,8 @@ export default function AddCredentialModal({viewCredentialList}) {
             value={notes}
             onChange={(e) => setNotes(e.target.value)}
           ></textarea>
-
         </div>
-        <div
-          className="flex flex-row justify-center items-center w-11/12 h-[40px] rounded-md drop-shadow-lg"
-        >
+        <div className="flex flex-row justify-center items-center w-11/12 h-[40px] rounded-md drop-shadow-lg">
           <button
             className="w-3/12 h-[36px] flex justify-center items-center mx-1"
             style={{

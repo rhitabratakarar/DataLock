@@ -4,7 +4,11 @@ import { BiSolidCog, BiPlusCircle, BiSearchAlt } from "react-icons/bi";
 import { IoMdRefresh } from "react-icons/io";
 import { AiOutlineCloudSync } from "react-icons/ai";
 
-export default function PageFunctions({viewAddCredentialModal, viewSettingsModal, viewCredentialList}) {
+export default function PageFunctions({
+  viewAddCredentialModal,
+  viewSettingsModal,
+  viewCredentialList,
+}) {
   const [toggle, setToggle] = useState(true);
   const colors = useContext(ColorContext);
   return (
@@ -15,7 +19,7 @@ export default function PageFunctions({viewAddCredentialModal, viewSettingsModal
       <div className="flex flex-row w-full justify-evenly relative">
         <button
           className="w-2/12 flex justify-center items-center mx-4"
-          style={{color: colors.quaternary}}
+          style={{ color: colors.quaternary }}
           onClick={() => {
             if (toggle) {
               setToggle(false);
@@ -27,32 +31,32 @@ export default function PageFunctions({viewAddCredentialModal, viewSettingsModal
             }
           }}
         >
-          <BiPlusCircle size={40} className=""/>
+          <BiPlusCircle size={40} />
         </button>
         <button
           className="w-2/12 flex justify-center items-center mx-4"
-          style={{color: colors.quaternary}}
+          style={{ color: colors.quaternary }}
         >
-          <AiOutlineCloudSync size={40}/>
+          <AiOutlineCloudSync size={40} />
         </button>
         <button
           className="w-2/12 flex justify-center items-center mx-4"
-          style={{color: colors.quaternary}}
+          style={{ color: colors.quaternary }}
         >
-          <IoMdRefresh size={40}/>
+          <IoMdRefresh size={40} />
         </button>
         <button
           className="w-2/12 flex justify-center items-center mx-4"
-          style={{color: colors.quaternary}}
+          style={{ color: colors.quaternary }}
           onClick={() => viewSettingsModal()}
         >
-          <BiSolidCog size={40}/>
+          <BiSolidCog size={40} />
         </button>
         <button
           className="w-[60px] h-[60px] flex justify-center items-center mx-4 absolute bottom-[75px] -right-[2rem] rounded-full shadow-md"
-          style={{color: colors.quaternary, backgroundColor: colors.primary}}
+          style={{ color: colors.quaternary, backgroundColor: colors.primary }}
         >
-          <BiSearchAlt size={40}/>
+          <BiSearchAlt size={40} />
         </button>
       </div>
     </div>
