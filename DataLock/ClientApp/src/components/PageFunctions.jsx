@@ -23,13 +23,20 @@ export default function PageFunctions({
           id="add-credential"
           className="w-2/12 flex justify-center items-center mx-4 z-10"
           style={{ color: colors.quaternary }}
-          // disabled={!setSettingsToggle}
           onClick={() => {
             if (addToggle) {
               viewCredentialList();
-              setSettingsToggle(true);
-              setAddToggle(false);
-              viewAddCredentialModal();
+              if (settingsToggle) {
+                setSettingsToggle(true);
+                setAddToggle(false);
+                viewAddCredentialModal();
+              } else {
+                setTimeout(() => {
+                  setSettingsToggle(true);
+                  setAddToggle(false);
+                  viewAddCredentialModal();
+                }, 310);
+              }
             } else {
               viewCredentialList();
               setAddToggle(true);
@@ -53,13 +60,20 @@ export default function PageFunctions({
         <button
           className="w-2/12 flex justify-center items-center mx-4 z-10"
           style={{ color: colors.quaternary }}
-          // disabled={!addToggle}
           onClick={() => {
             if (settingsToggle) {
               viewCredentialList();
-              setAddToggle(true);
-              setSettingsToggle(false);
-              viewSettingsModal();
+              if(addToggle) {
+                setAddToggle(true);
+                setSettingsToggle(false);
+                viewSettingsModal();
+              } else {
+                setTimeout(() => {
+                  setAddToggle(true);
+                  setSettingsToggle(false);
+                  viewSettingsModal();
+              }, 310);
+              } 
             } else {
               setSettingsToggle(true);
               viewCredentialList();
