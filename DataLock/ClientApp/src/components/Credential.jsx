@@ -1,6 +1,7 @@
 import { useContext, useEffect } from "react";
 import { ColorContext } from "../contexts";
-import { BiUser, BiBookOpen, BiWorld, BiKey } from "react-icons/bi";
+import { AiOutlineEllipsis } from "react-icons/ai";
+import { BiUser, BiWorld, BiKey } from "react-icons/bi";
 
 export default function Credential({
   viewCredentialModal,
@@ -29,7 +30,7 @@ export default function Credential({
       <div className="flex flow-row justify-end items-center w-5/12">
         <BiUser size={30} className="mr-2 cursor-pointer" />
         <BiKey size={30} className="mr-2 cursor-pointer" />
-        <BiBookOpen
+        <AiOutlineEllipsis
           size={30}
           className="mr-2 cursor-pointer"
           onClick={() => {

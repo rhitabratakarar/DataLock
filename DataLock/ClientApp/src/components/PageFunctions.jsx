@@ -35,7 +35,7 @@ export default function PageFunctions({
                   setSettingsToggle(true);
                   setAddToggle(false);
                   viewAddCredentialModal();
-                }, 310);
+                }, 300);
               }
             } else {
               viewCredentialList();
@@ -72,7 +72,7 @@ export default function PageFunctions({
                   setAddToggle(true);
                   setSettingsToggle(false);
                   viewSettingsModal();
-              }, 310);
+              }, 300);
               } 
             } else {
               setSettingsToggle(true);

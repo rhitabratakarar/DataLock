@@ -1,10 +1,11 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ColorContext } from "../contexts";
 import { GoArrowUpRight } from "react-icons/go";
 import { FiMail } from "react-icons/fi";
 import { MdDelete } from "react-icons/md";
 import { BiUser, BiKey } from "react-icons/bi";
 import TextField from "./TextField";
+import adjustBrightness from "../deeperColor";
 
 export default function CredentialModal({
   viewCredentialList,
@@ -18,6 +19,10 @@ export default function CredentialModal({
   const [url, setURL] = useState(credentialData.url);
   const [notes, setNotes] = useState(credentialData.notes);
   const colors = useContext(ColorContext);
+
+  useEffect(() => {
+    console.log(adjustBrightness(colors.primary, -50));
+  }, [colors])
 
   const onEdit = () => {
     setDisabled(false);
@@ -129,7 +134,7 @@ export default function CredentialModal({
         <button
           className="w-3/12 h-[40px] flex justify-center items-center mx-1 shadow-sm"
           style={{
-            color: colors.primary,
+            color: adjustBrightness(colors.primary, -30),
           }}
           onClick={() => copyText("username")}
         >
@@ -138,7 +143,7 @@ export default function CredentialModal({
         <button
           className="w-3/12 h-[40px] flex justify-center items-center mx-1 shadow-sm"
           style={{
-            color: colors.primary,
+            color: adjustBrightness(colors.primary, -30),
           }}
           onClick={() => copyText("password")}
         >
@@ -147,7 +152,7 @@ export default function CredentialModal({
         <button
           className="w-3/12 h-[40px] flex justify-center items-center mx-1 shadow-sm"
           style={{
-            color: colors.primary,
+            color: adjustBrightness(colors.primary, -30),
           }}
           onClick={() => copyText("email")}
         >
@@ -156,7 +161,7 @@ export default function CredentialModal({
         <button
           className="w-3/12 h-[40px] flex justify-center items-center mx-1 shadow-sm"
           style={{
-            color: colors.primary,
+            color: adjustBrightness(colors.primary, -30),
           }}
           onClick={() => {
             window.open(document.getElementById("url").value, "_blank");
