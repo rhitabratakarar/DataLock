@@ -17,6 +17,9 @@ export default function BrowserWindow() {
   const [settingsModalTransition, setSettingsModalTransition] = useState(
     "opacity-0 right-[100vw]"
   );
+  const [searchButtonClass, setSearchButtonClass] = useState(
+    "opacity-1 -right-[2rem]"
+  );
   const [refresh, setRefresh] = useState(0);
   const [credentialData, setCredentialData] = useState({
     name: "",
@@ -54,6 +57,11 @@ export default function BrowserWindow() {
     setRefresh((prev) => (prev + 1) % 2);
   };
 
+  const hideSearchButton = (show) => {
+    if (show) setSearchButtonClass("opacity-1 -right-[2rem]");
+    else setSearchButtonClass("opacity-0 -right-[4rem]");
+  }
+
   return colors.hasOwnProperty("primary") ? (
     <div className="flex flex-col items-center h-screen min-h-screen overflow-hidden">
       <div
@@ -66,11 +74,13 @@ export default function BrowserWindow() {
           viewCredentialModal={viewCredentialModal}
           passCredentialData={passCredentialData}
           refreshCredentialModal={refreshCredentialModal}
+          hideSearchButton={hideSearchButton}
         />
         <PageFunctions
           viewAddCredentialModal={viewAddCredentialModal}
           viewSettingsModal={viewSettingsModal}
           viewCredentialList={viewCredentialList}
+          searchButtonClass={searchButtonClass}
         />
       </div>
       <div className="relative">
