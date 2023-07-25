@@ -1,5 +1,7 @@
 import InfoContainer from "./InfoContainer";
 
 export default function SettingsModal({ viewCredentialList }) {
-  return <InfoContainer className="py-3" />;
+  return (
+    <InfoContainer className="py-3"></InfoContainer>
+  );
 }

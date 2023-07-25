@@ -1,4 +1,4 @@
-import TopOverlay from "./CredentialSearch";
+import SearchTopOverlay from "./SearchTopOverlay";
 import { ColorContext } from "../contexts";
 import { useContext, useState } from "react";
 import Credentials from "./Credentials";
@@ -69,7 +69,7 @@ export default function BrowserWindow() {
         style={{ backgroundColor: colors.tertiary }}
       >
         <LogoAndSearch />
-        <TopOverlay />
+        <SearchTopOverlay />
         <Credentials
           viewCredentialModal={viewCredentialModal}
           passCredentialData={passCredentialData}

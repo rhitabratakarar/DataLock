@@ -12,7 +12,7 @@ export default function LogoAndSearch() {
   return (
     <div
       id="logoandsearch"
-      className="w-[calc(100vw+100px)] min-w-[calc(100vw+100px)] h-[85px] min-h-[85px] items-center flex md:rounded-md md:mt-3 absolute top-0 z-10 px-[5.5rem] justify-between"
+      className="w-[calc(100vw+100px)] min-w-[calc(100vw+100px)] h-[85px] min-h-[85px] items-center flex md:rounded-md md:mt-3 fixed top-0 z-20 px-[5.5rem] justify-between"
     >
       <img src="../icons/favicon.ico" alt="icon" />
       <input

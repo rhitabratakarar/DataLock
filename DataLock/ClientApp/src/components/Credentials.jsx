@@ -20,7 +20,7 @@ export default function Credentials({
   }, []);
 
   return (
-    <InfoContainer id="credential-list" className="pt-[70px] pb-3 hidden-scrollbar">
+    <InfoContainer id="credential-list" className="pt-[70px] pb-3 hidden-scrollbar relative z-0">
       <Credential
         viewCredentialModal={viewCredentialModal}
         passCredentialData={passCredentialData}

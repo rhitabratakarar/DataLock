@@ -15,7 +15,7 @@ export default function PageFunctions({
   const colors = useContext(ColorContext);
   return (
     <div
-      className="px-4 items-center flex flex-row h-[65px] w-full flex-shrink-0"
+      className="px-4 items-center flex flex-row h-[65px] w-full flex-shrink-0 fixed bottom-0"
       style={{ backgroundColor: colors.primary }}
     >
       <div className="flex flex-row w-full justify-evenly relative">
