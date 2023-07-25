@@ -1,4 +1,4 @@
-﻿import { useContext, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { ColorContext } from "../contexts";
 import { BiUser, BiBookOpen, BiWorld, BiKey } from "react-icons/bi";
 
