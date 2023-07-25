@@ -60,7 +60,7 @@ export default function BrowserWindow() {
   const hideSearchButton = (show) => {
     if (show) setSearchButtonClass("opacity-1 -right-[2rem]");
     else setSearchButtonClass("opacity-0 -right-[4rem]");
-  }
+  };
 
   return colors.hasOwnProperty("primary") ? (
     <div className="flex flex-col items-center h-screen min-h-screen overflow-hidden">
@@ -68,7 +68,7 @@ export default function BrowserWindow() {
         className="flex flex-col h-full w-screen justify-center items-center md:w-[700px] relative"
         style={{ backgroundColor: colors.tertiary }}
       >
-        <LogoAndSearch />
+        <LogoAndSearch viewCredentialList={viewCredentialList} />
         <SearchTopOverlay />
         <Credentials
           viewCredentialModal={viewCredentialModal}
@@ -85,7 +85,7 @@ export default function BrowserWindow() {
       </div>
       <div className="relative">
         <div
-          className={`flex flex-col h-[calc(100vh-130px)] h-min-[calc(100vh-130px)] w-screen justify-center items-center md:w-[700px] relative -top-[calc(100vh-65px)] py-3 z-auto transition-all duration-300 ease-in-out ${credentialModalTransition}`}
+          className={`flex flex-col h-[calc(100vh-130px)] h-min-[calc(100vh-130px)] w-screen justify-center items-center md:w-[700px] relative -top-[calc(100vh-65px)] z-auto transition-all duration-300 ease-in-out ${credentialModalTransition}`}
           style={{ backgroundColor: colors.tertiary }}
         >
           <CredentialModal
