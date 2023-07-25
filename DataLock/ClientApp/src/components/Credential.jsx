@@ -7,6 +7,7 @@ export default function Credential({
   viewCredentialModal,
   passCredentialData,
   refreshCredentialModal,
+  showCopied,
 }) {
   const colors = useContext(ColorContext);
   useEffect(() => {
@@ -28,8 +29,16 @@ export default function Credential({
         </div>
       </div>
       <div className="flex flow-row justify-end items-center w-5/12">
-        <BiUser size={30} className="mr-2 cursor-pointer" />
-        <BiKey size={30} className="mr-2 cursor-pointer" />
+        <BiUser
+          size={30}
+          className="mr-2 cursor-pointer"
+          onClick={() => showCopied()}
+        />
+        <BiKey
+          size={30}
+          className="mr-2 cursor-pointer"
+          onClick={() => showCopied()}
+        />
         <AiOutlineEllipsis
           size={30}
           className="mr-2 cursor-pointer"

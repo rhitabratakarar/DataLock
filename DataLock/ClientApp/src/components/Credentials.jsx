@@ -7,6 +7,7 @@ export default function Credentials({
   passCredentialData,
   refreshCredentialModal,
   hideSearchButton,
+  showCopied,
 }) {
   useEffect(() => {
     let credentialList = document.getElementById("credential-list");
@@ -30,76 +31,97 @@ export default function Credentials({
         viewCredentialModal={viewCredentialModal}
         passCredentialData={passCredentialData}
         refreshCredentialModal={refreshCredentialModal}
+        showCopied={showCopied}
       />
       <Credential
         viewCredentialModal={viewCredentialModal}
         passCredentialData={passCredentialData}
         refreshCredentialModal={refreshCredentialModal}
+        showCopied={showCopied}
       />
       <Credential
         viewCredentialModal={viewCredentialModal}
         passCredentialData={passCredentialData}
         refreshCredentialModal={refreshCredentialModal}
+        showCopied={showCopied}
       />
       <Credential
         viewCredentialModal={viewCredentialModal}
         passCredentialData={passCredentialData}
         refreshCredentialModal={refreshCredentialModal}
+        showCopied={showCopied}
       />
       <Credential
         viewCredentialModal={viewCredentialModal}
         passCredentialData={passCredentialData}
         refreshCredentialModal={refreshCredentialModal}
+        showCopied={showCopied}
       />
       <Credential
         viewCredentialModal={viewCredentialModal}
         passCredentialData={passCredentialData}
         refreshCredentialModal={refreshCredentialModal}
+        showCopied={showCopied}
       />
       <Credential
         viewCredentialModal={viewCredentialModal}
         passCredentialData={passCredentialData}
         refreshCredentialModal={refreshCredentialModal}
+        showCopied={showCopied}
       />
       <Credential
         viewCredentialModal={viewCredentialModal}
         passCredentialData={passCredentialData}
         refreshCredentialModal={refreshCredentialModal}
+        showCopied={showCopied}
       />
       <Credential
         viewCredentialModal={viewCredentialModal}
         passCredentialData={passCredentialData}
         refreshCredentialModal={refreshCredentialModal}
+        showCopied={showCopied}
       />
       <Credential
         viewCredentialModal={viewCredentialModal}
         passCredentialData={passCredentialData}
         refreshCredentialModal={refreshCredentialModal}
+        showCopied={showCopied}
       />
       <Credential
         viewCredentialModal={viewCredentialModal}
         passCredentialData={passCredentialData}
         refreshCredentialModal={refreshCredentialModal}
+        showCopied={showCopied}
       />
       <Credential
         viewCredentialModal={viewCredentialModal}
         passCredentialData={passCredentialData}
         refreshCredentialModal={refreshCredentialModal}
+        showCopied={showCopied}
       />
       <Credential
         viewCredentialModal={viewCredentialModal}
         passCredentialData={passCredentialData}
         refreshCredentialModal={refreshCredentialModal}
+        showCopied={showCopied}
       />
       <Credential
         viewCredentialModal={viewCredentialModal}
         passCredentialData={passCredentialData}
         refreshCredentialModal={refreshCredentialModal}
+        showCopied={showCopied}
       />
       <Credential
         viewCredentialModal={viewCredentialModal}
         passCredentialData={passCredentialData}
         refreshCredentialModal={refreshCredentialModal}
+        showCopied={showCopied}
+      />
+      <Credential
+        viewCredentialModal={viewCredentialModal}
+        passCredentialData={passCredentialData}
+        refreshCredentialModal={refreshCredentialModal}
+        showCopied={showCopied}
       />
     </InfoContainer>
   );
