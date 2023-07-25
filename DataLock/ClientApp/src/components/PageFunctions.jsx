@@ -63,7 +63,7 @@ export default function PageFunctions({
           onClick={() => {
             if (settingsToggle) {
               viewCredentialList();
-              if(addToggle) {
+              if (addToggle) {
                 setAddToggle(true);
                 setSettingsToggle(false);
                 viewSettingsModal();
@@ -72,8 +72,8 @@ export default function PageFunctions({
                   setAddToggle(true);
                   setSettingsToggle(false);
                   viewSettingsModal();
-              }, 300);
-              } 
+                }, 300);
+              }
             } else {
               setSettingsToggle(true);
               viewCredentialList();

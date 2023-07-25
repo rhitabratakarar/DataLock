@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { ColorContext } from "../contexts";
 import { GoArrowUpRight } from "react-icons/go";
 import { FiMail } from "react-icons/fi";
@@ -19,10 +19,6 @@ export default function CredentialModal({
   const [url, setURL] = useState(credentialData.url);
   const [notes, setNotes] = useState(credentialData.notes);
   const colors = useContext(ColorContext);
-
-  useEffect(() => {
-    console.log(adjustBrightness(colors.primary, -50));
-  }, [colors])
 
   const onEdit = () => {
     setDisabled(false);

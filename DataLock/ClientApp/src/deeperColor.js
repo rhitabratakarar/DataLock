@@ -27,9 +27,6 @@ function rgbToHex(r, g, b) {
 
 function adjustBrightness(hex, amount) {
   const { r, g, b } = hexToRgb(hex);
-
-  console.log(r, g, b);
-
   const newR = Math.max(0, Math.min(255, r + amount));
   const newG = Math.max(0, Math.min(255, g + amount));
   const newB = Math.max(0, Math.min(255, b + amount));
