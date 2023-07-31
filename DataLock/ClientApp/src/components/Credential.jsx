@@ -1,15 +1,22 @@
-﻿import { useContext, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { ColorContext } from "../contexts";
-import { BiUser, BiBookOpen, BiWorld, BiKey } from "react-icons/bi"
+import { AiOutlineEllipsis } from "react-icons/ai";
+import { BiUser, BiWorld, BiKey } from "react-icons/bi";
 
-export default function Credential({ viewCredentialModal, passCredentialData, refreshCredentialModal }) {
+export default function Credential({
+  viewCredentialModal,
+  passCredentialData,
+  refreshCredentialModal,
+  showCopied,
+  credentialData,
+}) {
   const colors = useContext(ColorContext);
   useEffect(() => {
     // add database access code to get credential data and call {passCredentialData}
   });
   return (
     <div
-      className="w-10/12 h-[48px] min-h-[48px] flex flex-row justify-center items-center my-2 rounded-md"
+      className="w-10/12 h-[85px] min-h-[85px] flex flex-row justify-center items-center my-3 rounded-md shadow-lg px-3"
       style={{ backgroundColor: colors.quaternary }}
     >
       <div className="flex flex-row w-7/12">
@@ -18,27 +25,28 @@ export default function Credential({ viewCredentialModal, passCredentialData, re
         </div>
 
         <div className="flex flex-col justify-center items-start w-9/12 pl-2">
-          <span>Name</span>
-          <span>username</span>
+          <span className="text-lg">{credentialData.Name}</span>
+          <span>{credentialData.username}</span>
         </div>
       </div>
       <div className="flex flow-row justify-end items-center w-5/12">
-        <BiUser size={30} className="mr-2 cursor-pointer"/>
-        <BiKey size={30} className="mr-2 cursor-pointer" />
-        <BiBookOpen
+        <BiUser
+          size={30}
+          className="mr-2 cursor-pointer"
+          onClick={() => showCopied()}
+        />
+        <BiKey
+          size={30}
+          className="mr-2 cursor-pointer"
+          onClick={() => showCopied()}
+        />
+        <AiOutlineEllipsis
           size={30}
           className="mr-2 cursor-pointer"
           onClick={() => {
             refreshCredentialModal();
             viewCredentialModal();
-            passCredentialData({
-              name: "Vikram",
-              username: "vikram",
-              email: "vik@vik.vik",
-              password: "vikramvik",
-              url: "http://vikramadityacodes.in",
-              notes: "vikramaditya",
-            });
+            passCredentialData(credentialData);
           }}
         />
       </div>

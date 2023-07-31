@@ -1,9 +1,9 @@
 import { useContext, useState } from "react";
 import { ColorContext } from "../contexts";
 import InfoContainer from "./InfoContainer";
-import { AiOutlineLeft, AiOutlineSave } from "react-icons/ai";
+import TextField from "./TextField";
 
-export default function AddCredentialModal({viewCredentialList}) {
+export default function AddCredentialModal({ viewCredentialList }) {
   const [name, setName] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -14,91 +14,76 @@ export default function AddCredentialModal({viewCredentialList}) {
 
   const onSave = () => {
     // submit to server
-  }
+  };
 
   return (
-    <InfoContainer className="py-3" >
+    <InfoContainer className="py-3">
       <div
-        className="w-10/12 h-full flex flex-col justify-between items-center rounded-lg border-b-2 border-gray-600 py-2"
+        className="w-full h-full flex flex-col justify-start items-center py-2"
         style={{ backgroundColor: colors.tertiary }}
       >
-        <div className="flex flex-row items-center justify-between w-11/12 mb-3 mt-3 drop-shadow-lg">
-          <AiOutlineLeft size={30} className="cursor-pointer" onClick={() => viewCredentialList()}/>
-          <div
-            className="w-6/12 flex justify-center items-center rounded-md drop-shadow-lg h-full pb-1"
-            style={{ backgroundColor: colors.primary, color: colors.quaternary }}
-          >
-            <span className="text-2xl">Name</span>
-          </div>
-          <AiOutlineSave size={30} />
-        </div>
-        <div className="flex flex-col justify-center items-center overflow-y-scroll overflow-x-hidden">
-          <input
-            id="name"
-            type="text"
-            placeholder="Name"
-            className="h-8 w-full rounded-sm shadow-md text-center m-2 focus:outline-none outline-none"
-            style={{ backgroundColor: colors.quaternary }}
+        <div className="flex flex-col justify-start items-center overflow-y-scroll overflow-x-hidden w-full">
+          <TextField
+            label="Name"
             value={name}
             onChange={(e) => setName(e.target.value)}
+            id={"add-name"}
           />
-          <input
-            id="username"
+          <TextField
+            id="add-username"
             type="text"
-            placeholder="Username"
-            className="h-8 w-full rounded-sm shadow-md text-center m-2 focus:outline-none outline-none"
-            style={{ backgroundColor: colors.quaternary }}
+            label="Username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
-          <input
-            id="email"
+          <TextField
+            id="add-email"
             type="Email"
-            placeholder="Email"
-            className="h-8 w-full rounded-sm shadow-md text-center m-2 focus:outline-none outline-none"
-            style={{ backgroundColor: colors.quaternary }}
+            label="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-          <input
-            id="password"
+          <TextField
+            id="add-password"
             type="password"
-            placeholder="Password"
-            className="h-8 w-full rounded-sm shadow-md text-center m-2 focus:outline-none outline-none"
-            style={{ backgroundColor: colors.quaternary }}
+            label="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <input
-            id="url"
+          <TextField
+            id="add-url"
             type="url"
-            placeholder="Url"
-            className="h-8 w-full rounded-sm shadow-md text-center m-2 focus:outline-none outline-none"
-            style={{ backgroundColor: colors.quaternary }}
+            label="Url"
             value={url}
             onChange={(e) => setURL(e.target.value)}
           />
-          <textarea
-            id="notes"
-            cols={20}
-            rows={10}
-            placeholder="Notes"
-            className="w-full rounded-sm shadow-md text-center m-2 focus:outline-none outline-none"
-            style={{ backgroundColor: colors.quaternary }}
-            value={notes}
-            onChange={(e) => setNotes(e.target.value)}
-          ></textarea>
-
+          <div className="w-9/12 mb-3">
+            <label
+              htmlFor="add-notes"
+              className="block text-lg font-medium leading-6 text-gray-900 mb-1"
+            >
+              About
+            </label>
+            <textarea
+              id="add-notes"
+              cols={20}
+              rows={10}
+              label="Notes"
+              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-2"
+              value={notes}
+              onChange={(e) => setNotes(e.target.value)}
+            ></textarea>
+          </div>
         </div>
-        <div
-          className="flex flex-row justify-center items-center w-11/12 h-[40px] rounded-md drop-shadow-lg"
-        >
+        <div className="w-5/12 flex flex-row justify-between items-center h-[40px] rounded-md drop-shadow-lg mt-3">
           <button
-            className="w-3/12 h-[36px] flex justify-center items-center mx-1"
-            style={{
-              borderRadius: "4px",
-              backgroundColor: colors.quaternary,
-            }}
+            className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 cursor-pointer"
+            onClick={() => viewCredentialList()}
+          >
+            Cancel
+          </button>
+          <button
+            className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             onClick={() => onSave("username")}
           >
             Submit

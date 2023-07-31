@@ -1,54 +1,95 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { ColorContext } from "../contexts";
-import { BiSolidCog, BiPlusCircle } from "react-icons/bi";
+import { BiSolidCog, BiPlusCircle, BiSearchAlt } from "react-icons/bi";
 import { IoMdRefresh } from "react-icons/io";
 import { AiOutlineCloudSync } from "react-icons/ai";
 
-export default function PageFunctions({viewAddCredentialModal, viewSettingsModal}) {
+export default function PageFunctions({
+  viewAddCredentialModal,
+  viewSettingsModal,
+  viewCredentialList,
+  searchButtonClass,
+  handleSearchFocus,
+}) {
+  const [addToggle, setAddToggle] = useState(true);
+  const [settingsToggle, setSettingsToggle] = useState(true);
   const colors = useContext(ColorContext);
   return (
     <div
-      className="px-4 items-center flex mt-3 flex-row h-[65px] w-full flex-shrink-0"
+      className="px-4 items-center flex flex-row h-[65px] w-full flex-shrink-0 fixed bottom-0"
       style={{ backgroundColor: colors.primary }}
     >
-      <div className="flex flex-row w-full justify-between">
+      <div className="flex flex-row w-full justify-evenly relative">
         <button
-          className="w-2/12 h-[36px] flex justify-center items-center mx-2"
-          style={{
-            borderRadius: "4px",
-            backgroundColor: colors.quaternary,
+          id="add-credential"
+          className="w-2/12 flex justify-center items-center mx-4 z-10"
+          style={{ color: colors.quaternary }}
+          onClick={() => {
+            if (addToggle) {
+              viewCredentialList();
+              if (settingsToggle) {
+                setSettingsToggle(true);
+                setAddToggle(false);
+                viewAddCredentialModal();
+              } else {
+                setTimeout(() => {
+                  setSettingsToggle(true);
+                  setAddToggle(false);
+                  viewAddCredentialModal();
+                }, 300);
+              }
+            } else {
+              viewCredentialList();
+              setAddToggle(true);
+            }
           }}
-          onClick={() => viewAddCredentialModal()}
         >
-          <BiPlusCircle size={30}/>
+          <BiPlusCircle size={40} />
         </button>
         <button
-          className="w-2/12 h-[36px] flex justify-center items-center mx-2"
-          style={{
-            borderRadius: "4px",
-            backgroundColor: colors.quaternary,
-          }}
+          className="w-2/12 flex justify-center items-center mx-4 z-10"
+          style={{ color: colors.quaternary }}
         >
-          <AiOutlineCloudSync size={30}/>
+          <AiOutlineCloudSync size={40} />
         </button>
         <button
-          className="w-2/12 h-[36px] flex justify-center items-center mx-2"
-          style={{
-            borderRadius: "4px",
-            backgroundColor: colors.quaternary,
-          }}
+          className="w-2/12 flex justify-center items-center mx-4 z-10"
+          style={{ color: colors.quaternary }}
         >
-          <IoMdRefresh size={30}/>
+          <IoMdRefresh size={40} />
         </button>
         <button
-          className="w-2/12 h-[36px] flex justify-center items-center mx-2"
-          style={{
-            borderRadius: "4px",
-            backgroundColor: colors.quaternary,
+          className="w-2/12 flex justify-center items-center mx-4 z-10"
+          style={{ color: colors.quaternary }}
+          onClick={() => {
+            if (settingsToggle) {
+              viewCredentialList();
+              if (addToggle) {
+                setAddToggle(true);
+                setSettingsToggle(false);
+                viewSettingsModal();
+              } else {
+                setTimeout(() => {
+                  setAddToggle(true);
+                  setSettingsToggle(false);
+                  viewSettingsModal();
+                }, 300);
+              }
+            } else {
+              setSettingsToggle(true);
+              viewCredentialList();
+            }
           }}
-          onClick={() => viewSettingsModal()}
         >
-          <BiSolidCog size={30}/>
+          <BiSolidCog size={40} />
+        </button>
+        <button
+          id="floating-search-button"
+          className={`w-[60px] h-[60px] flex justify-center items-center mx-4 absolute rounded-full shadow-md ${searchButtonClass} transition-all duration-300 ease-in-out z-0 bottom-[75px]`}
+          style={{ color: colors.quaternary, backgroundColor: colors.primary }}
+          onClick={handleSearchFocus}
+        >
+          <BiSearchAlt size={40} />
         </button>
       </div>
     </div>

@@ -24,14 +24,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 
-
-app.MapControllerRoute(
-    name: "api",
-    pattern: "api/{controller}/{action?}/{id?}");
-
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller}/{action?}/{id?}");
+app.MapControllers();
 
 app.MapFallbackToFile("index.html");
 

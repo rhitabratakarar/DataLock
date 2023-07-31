@@ -1,6 +1,5 @@
-function getColorPallete(url) {
-  let originalString = "27374d526d829db2bfdde6ed";
-  const substrings = [];
+function getColorPalleteStringFromURL(url) {
+  let originalString = "6e85b7b2c8dfc4d7e0f8f9d7";
 
   if (url) {
     const stringList = url.split("/");
@@ -11,6 +10,13 @@ function getColorPallete(url) {
     }
   }
 
+  return originalString;
+}
+
+function getColorPallete(string, url) {
+  let originalString = getColorPalleteStringFromURL(url);
+  if (string) originalString = string;
+  const substrings = [];
   const substringLength = Math.ceil(originalString.length / 4);
 
   for (let i = 0; i < originalString.length; i += substringLength) {
@@ -18,11 +24,11 @@ function getColorPallete(url) {
   }
 
   const colorObject = {
-      primary: '#' + substrings[0],
-      secondary: '#' + substrings[1],
-      tertiary: '#' + substrings[2],
-      quaternary: '#' + substrings[3],
-  }
+    primary: "#" + substrings[0],
+    secondary: "#" + substrings[1],
+    tertiary: "#" + substrings[2],
+    quaternary: "#" + substrings[3],
+  };
 
   return colorObject;
 }

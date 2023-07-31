@@ -1,3 +1,6 @@
 {
-  "dotnet.defaultSolution": "DataLock.sln"
+  "dotnet.defaultSolution": "DataLock.sln",
+  "files.associations": {
+    "*.css": "tailwindcss"
+  }
 }
