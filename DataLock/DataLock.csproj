@@ -34,12 +34,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="ClientApp\src\components\NewFile.txt" />
-    <None Remove="ClientApp\src\NewFile.txt" />
+    <Compile Remove="Classes\SampleCedentialGenerator.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DataLockLib\DataLockLib.csproj" />
+    <None Remove="Classes\NewFile.txt" />
+    <None Remove="ClientApp\src\components\NewFile.txt" />
+    <None Remove="ClientApp\src\NewFile.txt" />
+    <None Remove="Models\NewFile.txt" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

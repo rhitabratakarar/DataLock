@@ -1,4 +1,4 @@
-﻿using DataLockLib.Models;
+﻿using DataLock.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace DataLock.Db

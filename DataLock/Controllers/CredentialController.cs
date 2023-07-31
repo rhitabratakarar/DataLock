@@ -1,8 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using DataLockLib.Models;
-using DataLockLib.FactoryClasses;
+﻿using Microsoft.AspNetCore.Mvc;
+using DataLock.Models;
 using DataLock.Db;
+using DataLock.Classes;
 
 namespace DataLock.Controllers
 {
@@ -21,7 +20,7 @@ namespace DataLock.Controllers
         [Route("sample-credential")]
         public IList<Credential> Credentials()
         {
-            Credential sampleCredential = new SampleCredentialFactory().GetSampleCredential();
+            Credential sampleCredential = SampleCredentialGenerator.GetSampleCredential();
             IList<Credential> sampleCredentialList = new List<Credential>()
             {
                 sampleCredential
