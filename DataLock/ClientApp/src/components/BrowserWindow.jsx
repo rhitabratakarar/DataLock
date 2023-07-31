@@ -10,15 +10,15 @@ import LogoAndSearch from "./LogoAndSearch";
 
 export default function BrowserWindow() {
   const [credentialModalTransition, setCredentialModalTransition] = useState(
-    "opacity-0 right-[100vw]"
+    "opacity-0 right-[100vw]",
   );
   const [addCredentialModalTransition, setAddCredentialModalTransition] =
     useState("opacity-0 right-[100vw]");
   const [settingsModalTransition, setSettingsModalTransition] = useState(
-    "opacity-0 right-[100vw]"
+    "opacity-0 right-[100vw]",
   );
   const [searchButtonClass, setSearchButtonClass] = useState(
-    "opacity-1 -right-[2rem]"
+    "opacity-1 -right-[2rem]",
   );
   const [copied, setCopied] = useState("outsight");
   const [refresh, setRefresh] = useState(0);

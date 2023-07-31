@@ -10,7 +10,7 @@ export default function LogoAndSearch({ viewCredentialList, searchInput }) {
     searchBox.style.backdropFilter = "blur(12px)";
     searchBox.style.background = `linear-gradient(180deg, ${colors.primary}00, ${colors.primary})`;
   });
-  
+
   return (
     <div
       id="logoandsearch"
