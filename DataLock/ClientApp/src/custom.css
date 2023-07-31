@@ -20,3 +20,18 @@
 #search-input {
   animation: cursor-blink 1.5s steps(2) infinite;
 }
+
+.item {        
+    transition: visibility 0s linear 0.2s, opacity 0.2s ease-in-out;
+}
+
+.item.insight {
+    transition-delay: 0s;
+    visibility: visible;
+    opacity: 1;
+}
+
+.item.outsight {
+    opacity: 0; 
+    visibility:hidden;
+}

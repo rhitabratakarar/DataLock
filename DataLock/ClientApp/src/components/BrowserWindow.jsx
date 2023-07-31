@@ -20,7 +20,7 @@ export default function BrowserWindow() {
   const [searchButtonClass, setSearchButtonClass] = useState(
     "opacity-1 -right-[2rem]"
   );
-  const [copied, setCopied] = useState("opacity-0");
+  const [copied, setCopied] = useState("outsight");
   const [refresh, setRefresh] = useState(0);
   const [credentialData, setCredentialData] = useState({
     name: "",
@@ -70,9 +70,9 @@ export default function BrowserWindow() {
   };
 
   const showCopied = () => {
-    setCopied("opacity-1");
+    setCopied("insight");
     setTimeout(() => {
-      setCopied("opacity-0");
+      setCopied("outsight");
     }, 1000);
   };
 
@@ -123,7 +123,7 @@ export default function BrowserWindow() {
           <SettingsModal viewCredentialList={viewCredentialList} />
         </div>
         <div
-          className={`fixed w-auto h-auto py-2 px-3 z-50 bottom-[80px] right-[calc((100vw-80px)/2)] rounded-md text-center items-center text-lg transition-all duration-300 ease-in-out ${copied} border-2 border-solid`}
+          className={`fixed w-auto h-auto py-2 px-3 z-50 bottom-[80px] right-[calc((100vw-80px)/2)] rounded-md text-center items-center text-lg item ${copied} border-2 border-solid`}
           style={{
             borderColor: colors.primary,
             backgroundColor: colors.primary,
