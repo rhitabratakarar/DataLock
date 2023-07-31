@@ -1,14 +1,16 @@
 import { useContext, useEffect } from "react";
 import { ColorContext } from "../contexts";
 
-export default function LogoAndSearch({ viewCredentialList }) {
+export default function LogoAndSearch({ viewCredentialList, searchInput }) {
   const colors = useContext(ColorContext);
+
   useEffect(() => {
     const searchBox = document.getElementById("search");
     searchBox.style.boxShadow = `0 100px 60px ${colors.primary}`;
     searchBox.style.backdropFilter = "blur(12px)";
     searchBox.style.background = `linear-gradient(180deg, ${colors.primary}00, ${colors.primary})`;
   });
+  
   return (
     <div
       id="logoandsearch"
@@ -24,6 +26,7 @@ export default function LogoAndSearch({ viewCredentialList }) {
         type="text"
         className="bg-transparent w-full focus:outline-none text-right text-transparent pr-[0.1rem]"
         style={{ textShadow: `0 0 0 ${colors.quaternary}` }}
+        ref={searchInput}
       />
       <div
         id="search-input"

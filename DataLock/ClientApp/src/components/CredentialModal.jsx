@@ -35,10 +35,10 @@ export default function CredentialModal({
   return (
     <div
       id="credential-modal"
-      className="w-full h-full flex flex-col justify-start items-center"
+      className="w-full h-full flex flex-col justify-start items-center relative"
       style={{ backgroundColor: colors.tertiary }}
     >
-      <div className="flex w-full flex-col justify-start items-center overflow-y-scroll overflow-x-hidden pt-4 pb-3">
+      <div className="flex w-full flex-col justify-start items-center overflow-y-scroll overflow-x-hidden pt-4 pb-[100px]">
         <TextField
           id="name"
           type="text"
@@ -93,8 +93,7 @@ export default function CredentialModal({
           </label>
           <textarea
             id="add-notes"
-            cols={20}
-            rows={10}
+            rows={6}
             disabled={disabled}
             label="Notes"
             className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-2"
@@ -126,7 +125,7 @@ export default function CredentialModal({
           )}
         </div>
       </div>
-      <div className="flex flex-row justify-center items-center w-11/12 h-[50px] rounded-md drop-shadow-lg my-3">
+      <div className="flex flex-row justify-center items-center w-11/12 h-[50px] rounded-md drop-shadow-lg my-3 absolute bottom-0 bg-inherit">
         <button
           className="w-3/12 h-[40px] flex justify-center items-center mx-1 shadow-sm"
           style={{

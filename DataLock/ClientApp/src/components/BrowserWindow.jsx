@@ -1,6 +1,6 @@
 import SearchTopOverlay from "./SearchTopOverlay";
 import { ColorContext } from "../contexts";
-import { useContext, useState } from "react";
+import { useContext, useState, useRef } from "react";
 import Credentials from "./Credentials";
 import PageFunctions from "./PageFunctions";
 import CredentialModal from "./CredentialModal";
@@ -31,6 +31,12 @@ export default function BrowserWindow() {
     notes: "",
   });
   const colors = useContext(ColorContext);
+
+  const searchInput = useRef(null);
+
+  const handleSearchFocus = () => {
+    searchInput.current.focus();
+  }
 
   const viewCredentialModal = () => {
     setCredentialModalTransition("opacity-100 right-0");
@@ -76,7 +82,7 @@ export default function BrowserWindow() {
         className="flex flex-col h-full w-screen justify-center items-center md:w-[700px] relative"
         style={{ backgroundColor: colors.tertiary }}
       >
-        <LogoAndSearch viewCredentialList={viewCredentialList} />
+        <LogoAndSearch viewCredentialList={viewCredentialList} searchInput={searchInput} />
         <SearchTopOverlay />
         <Credentials
           viewCredentialModal={viewCredentialModal}
@@ -90,6 +96,7 @@ export default function BrowserWindow() {
           viewSettingsModal={viewSettingsModal}
           viewCredentialList={viewCredentialList}
           searchButtonClass={searchButtonClass}
+          handleSearchFocus={handleSearchFocus}
         />
       </div>
       <div className="relative">

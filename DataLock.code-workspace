@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"dotnet.defaultSolution": "DataLock.sln",
+		"files.associations": {
+			"*.css": "tailwindcss"
+		}
+	}
+}
