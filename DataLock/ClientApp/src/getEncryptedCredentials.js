@@ -1,12 +1,12 @@
 const getEncryptedCredentials = async () => {
   return [
     {
-      Name: "Somer",
-      Username: "soefa",
-      Email: "something@gmail.com",
-      Password: "lasdjflakjdlfj",
-      Url: "v.v.c",
-      Notes: "fs",
+      Name: "Vikram",
+      Username: "vikram",
+      Email: "v@v.com",
+      Password: "vikram",
+      Url: "vik.com",
+      Notes: "vikramaditya",
     },
   ];
 };
