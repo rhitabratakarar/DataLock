@@ -10,7 +10,7 @@ export default function Display() {
   return (
     <ColorContext.Provider value={colors}>
       <div
-        className="w-screen h-screen flex justify-center items-center"
+        className="w-screen h-screen flex justify-center items-center font-sans"
         style={{ backgroundColor: colors.tertiary }}
       >
         <BrowserWindow />
