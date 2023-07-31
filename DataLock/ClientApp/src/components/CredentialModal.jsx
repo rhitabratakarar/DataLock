@@ -12,12 +12,12 @@ export default function CredentialModal({
   credentialData,
 }) {
   const [disabled, setDisabled] = useState(true);
-  const [name, setName] = useState(credentialData.name);
-  const [username, setUsername] = useState(credentialData.username);
-  const [password, setPassword] = useState(credentialData.password);
-  const [email, setEmail] = useState(credentialData.email);
-  const [url, setURL] = useState(credentialData.url);
-  const [notes, setNotes] = useState(credentialData.notes);
+  const [name, setName] = useState(credentialData.Name);
+  const [username, setUsername] = useState(credentialData.Username);
+  const [password, setPassword] = useState(credentialData.Password);
+  const [email, setEmail] = useState(credentialData.Email);
+  const [url, setURL] = useState(credentialData.Url);
+  const [notes, setNotes] = useState(credentialData.Notes);
   const colors = useContext(ColorContext);
 
   const onEdit = () => {

@@ -23,12 +23,12 @@ export default function BrowserWindow() {
   const [copied, setCopied] = useState("outsight");
   const [refresh, setRefresh] = useState(0);
   const [credentialData, setCredentialData] = useState({
-    name: "",
-    username: "",
-    email: "",
-    password: "",
-    url: "",
-    notes: "",
+    Name: "",
+    Username: "",
+    Email: "",
+    Password: "",
+    Url: "",
+    Notes: "",
   });
   const colors = useContext(ColorContext);
 
@@ -36,7 +36,7 @@ export default function BrowserWindow() {
 
   const handleSearchFocus = () => {
     searchInput.current.focus();
-  }
+  };
 
   const viewCredentialModal = () => {
     setCredentialModalTransition("opacity-100 right-0");
@@ -82,7 +82,10 @@ export default function BrowserWindow() {
         className="flex flex-col h-full w-screen justify-center items-center md:w-[700px] relative"
         style={{ backgroundColor: colors.tertiary }}
       >
-        <LogoAndSearch viewCredentialList={viewCredentialList} searchInput={searchInput} />
+        <LogoAndSearch
+          viewCredentialList={viewCredentialList}
+          searchInput={searchInput}
+        />
         <SearchTopOverlay />
         <Credentials
           viewCredentialModal={viewCredentialModal}

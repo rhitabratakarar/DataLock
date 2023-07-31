@@ -8,6 +8,7 @@ export default function Credential({
   passCredentialData,
   refreshCredentialModal,
   showCopied,
+  credentialData,
 }) {
   const colors = useContext(ColorContext);
   useEffect(() => {
@@ -24,8 +25,8 @@ export default function Credential({
         </div>
 
         <div className="flex flex-col justify-center items-start w-9/12 pl-2">
-          <span className="text-lg">Name</span>
-          <span>username</span>
+          <span className="text-lg">{credentialData.Name}</span>
+          <span>{credentialData.username}</span>
         </div>
       </div>
       <div className="flex flow-row justify-end items-center w-5/12">
@@ -45,14 +46,7 @@ export default function Credential({
           onClick={() => {
             refreshCredentialModal();
             viewCredentialModal();
-            passCredentialData({
-              name: "Vikram",
-              username: "vikram",
-              email: "vik@vik.vik",
-              password: "vikramvik",
-              url: "http://vikramadityacodes.in",
-              notes: "vikramaditya",
-            });
+            passCredentialData(credentialData);
           }}
         />
       </div>
