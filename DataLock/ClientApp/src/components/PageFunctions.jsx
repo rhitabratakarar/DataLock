@@ -84,6 +84,7 @@ export default function PageFunctions({
           <BiSolidCog size={40} />
         </button>
         <button
+          id="floating-search-button"
           className={`w-[60px] h-[60px] flex justify-center items-center mx-4 absolute rounded-full shadow-md ${searchButtonClass} transition-all duration-300 ease-in-out z-0 bottom-[75px]`}
           style={{ color: colors.quaternary, backgroundColor: colors.primary }}
           onClick={handleSearchFocus}

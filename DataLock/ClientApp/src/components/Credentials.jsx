@@ -34,7 +34,7 @@ export default function Credentials({
   return (
     <InfoContainer
       id="credential-list"
-      className="pt-[70px] pb-3 hidden-scrollbar relative z-0"
+      className="pt-[70px] pb-[80px] hidden-scrollbar relative z-0"
     >
       {encryptedCrendentialList.map((credentialData, index) => {
         return (
