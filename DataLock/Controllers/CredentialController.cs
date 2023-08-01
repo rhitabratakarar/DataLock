@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using DataLock.Models;
-using DataLock.Db;
-using DataLock.Classes;
+using DataLockAPI.Services;
 
 namespace DataLock.Controllers
 {
@@ -9,30 +8,68 @@ namespace DataLock.Controllers
     [ApiController]
     public class CredentialController : ControllerBase
     {
-        private readonly CredentialDbContext _context;
+        private readonly CredentialService _credentialService;
 
-        public CredentialController(CredentialDbContext dbContext)
+        public CredentialController(CredentialService service)
         {
-            _context = dbContext;
+            _credentialService = service;
         }
 
         [HttpGet]
-        [Route("sample-credential")]
-        public IList<Credential> Credentials()
+        public async Task<List<Credential>> Get() =>
+        await _credentialService.GetAsync();
+
+        [HttpGet("{id:length(24)}")]
+        public async Task<ActionResult<Credential>> Get(string id)
         {
-            Credential sampleCredential = SampleCredentialGenerator.GetSampleCredential();
-            IList<Credential> sampleCredentialList = new List<Credential>()
+            var credential = await _credentialService.GetAsync(id);
+
+            if (credential is null)
             {
-                sampleCredential
-            };
-            return sampleCredentialList;
+                return NotFound();
+            }
+
+            return credential;
         }
 
-        [HttpGet]
-        [Route("all")]
-        public IList<Credential> GetAllCredentials()
+        [HttpPost]
+        public async Task<IActionResult> Post(Credential newCredential)
         {
-            return _context.Credential.ToList();
+            await _credentialService.CreateAsync(newCredential);
+
+            return CreatedAtAction(nameof(Get), new { id = newCredential.CredentialId }, newCredential);
+        }
+
+        [HttpPut("{id:length(24)}")]
+        public async Task<IActionResult> Update(string id, [FromBody]Credential updateCredential)
+        {
+            var credential = await _credentialService.GetAsync(id);
+
+            if (credential is null)
+            {
+                return NotFound();
+            }
+
+            updateCredential.CredentialId = credential.CredentialId;
+
+            await _credentialService.UpdateAsync(id, updateCredential);
+
+            return NoContent();
+        }
+
+        [HttpDelete("{id:length(24)}")]
+        public async Task<IActionResult> Delete(string id)
+        {
+            var book = await _credentialService.GetAsync(id);
+
+            if (book is null)
+            {
+                return NotFound();
+            }
+
+            await _credentialService.RemoveAsync(id);
+
+            return NoContent();
         }
     }
 }

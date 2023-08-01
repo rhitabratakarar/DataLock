@@ -19,7 +19,7 @@ export default function BrowserWindow() {
   );
   const [searchButtonClass, setSearchButtonClass] =
     useState("opacity-1 right-0");
-  const [copied, setCopied] = useState("outsight");
+  const [statusClass, setStatusClass] = useState("outsight");
   const [refresh, setRefresh] = useState(0);
   const [credentialData, setCredentialData] = useState({
     Name: "",
@@ -29,6 +29,8 @@ export default function BrowserWindow() {
     Url: "",
     Notes: "",
   });
+  const [status, setStatus] = useState("");
+  const [credentialListRefresh, setCredentialListRefresh] = useState(0);
   const colors = useContext(ColorContext);
 
   const searchInput = useRef(null);
@@ -68,11 +70,16 @@ export default function BrowserWindow() {
     else setSearchButtonClass("opacity-0 -right-[4rem]");
   };
 
-  const showCopied = () => {
-    setCopied("insight");
+  const showStatus = (value) => {
+    setStatusClass("insight");
+    setStatus(value);
     setTimeout(() => {
-      setCopied("outsight");
+      setStatusClass("outsight");
     }, 1000);
+  };
+
+  const toggleCredentialListRefresh = () => {
+    setCredentialListRefresh((prev) => (prev + 1) % 2);
   };
 
   return colors.hasOwnProperty("primary") ? (
@@ -87,11 +94,12 @@ export default function BrowserWindow() {
         />
         <SearchTopOverlay />
         <Credentials
+          key={credentialListRefresh}
           viewCredentialModal={viewCredentialModal}
           passCredentialData={passCredentialData}
           refreshCredentialModal={refreshCredentialModal}
           hideSearchButton={hideSearchButton}
-          showCopied={showCopied}
+          showStatus={showStatus}
         />
         <PageFunctions
           viewAddCredentialModal={viewAddCredentialModal}
@@ -110,13 +118,19 @@ export default function BrowserWindow() {
             viewCredentialList={viewCredentialList}
             credentialData={credentialData}
             key={refresh}
+            showStatus={showStatus}
+            toggleCredentialListRefresh={toggleCredentialListRefresh}
           />
         </div>
         <div
           className={`flex flex-col h-[calc(100vh-130px)] h-min-[calc(100vh-130px)] w-screen justify-center items-center md:w-[700px] relative -top-[calc(200vh-195px)] py-3 transition-all duration-300 ease-in-out z-auto ${addCredentialModalTransition}`}
           style={{ backgroundColor: colors.tertiary }}
         >
-          <AddCredentialModal viewCredentialList={viewCredentialList} />
+          <AddCredentialModal
+            viewCredentialList={viewCredentialList}
+            showStatus={showStatus}
+            toggleCredentialListRefresh={toggleCredentialListRefresh}
+          />
         </div>
         <div
           className={`flex flex-col h-[calc(100vh-130px)] h-min-[calc(100vh-130px)] w-screen justify-center items-center md:w-[700px] relative -top-[calc(300vh-325px)] py-3 transition-all duration-300 ease-in-out z-auto ${settingsModalTransition}`}
@@ -125,14 +139,14 @@ export default function BrowserWindow() {
           <SettingsModal viewCredentialList={viewCredentialList} />
         </div>
         <div
-          className={`fixed w-auto h-auto py-2 px-3 z-50 bottom-[80px] right-[calc((100vw-80px)/2)] rounded-md text-center items-center text-lg item ${copied} border-2 border-solid`}
+          className={`fixed w-auto h-auto py-2 px-3 z-50 bottom-[80px] right-[calc((100vw-80px)/2)] rounded-md text-center items-center text-lg item ${statusClass} border-2 border-solid`}
           style={{
             borderColor: colors.primary,
             backgroundColor: colors.primary,
             color: colors.quaternary,
           }}
         >
-          Copied
+          {status}
         </div>
       </div>
     </div>

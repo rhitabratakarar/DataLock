@@ -8,7 +8,7 @@ export default function Credentials({
   refreshCredentialModal,
   passCredentialData,
   hideSearchButton,
-  showCopied,
+  showStatus,
 }) {
   const [encryptedCrendentialList, setEncryptedCrendentialList] = useState([]);
   useEffect(() => {
@@ -39,8 +39,8 @@ export default function Credentials({
       {encryptedCrendentialList.map((credentialData, index) => {
         return (
           <Credential
-            key={index}
-            showCopied={showCopied}
+            key={credentialData.credentialId}
+            showStatus={showStatus}
             refreshCredentialModal={refreshCredentialModal}
             passCredentialData={passCredentialData}
             viewCredentialModal={viewCredentialModal}

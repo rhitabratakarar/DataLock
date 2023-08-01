@@ -1,18 +1,20 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 
 namespace DataLock.Models
 {
     public class Credential
     {
-        [Key]
-        public Guid CredentialId { get; } = Guid.NewGuid();
-        public string? Username { get; set; }
-        public string? Email { get; set; }
-        [Required]
-        public string Password { get; set; } = "";
-        public string? Notes { get; set; }
-        public string? URL { get; set; }
-        [Required]
+        [BsonId]
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string? CredentialId { get; set; }
+        [BsonRequired]
+        public string Username { get; set; } = null!;
+        public string? Email { get; set; } = null!;
+        [BsonRequired]
+        public string Password { get; set; } = null!;
+        public string? Notes { get; set; } = null!;
+        public string? URL { get; set; } = null!;
         public string Name { get; set; } = "";
     }
 }

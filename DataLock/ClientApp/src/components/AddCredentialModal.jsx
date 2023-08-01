@@ -3,7 +3,11 @@ import { ColorContext } from "../contexts";
 import InfoContainer from "./InfoContainer";
 import TextField from "./TextField";
 
-export default function AddCredentialModal({ viewCredentialList }) {
+export default function AddCredentialModal({
+  viewCredentialList,
+  showStatus,
+  toggleCredentialListRefresh,
+}) {
   const [name, setName] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -13,7 +17,26 @@ export default function AddCredentialModal({ viewCredentialList }) {
   const colors = useContext(ColorContext);
 
   const onSave = () => {
-    // submit to server
+    fetch("https://localhost:44414/api/credential/", {
+      method: "POST",
+      body: JSON.stringify({
+        name,
+        username,
+        password,
+        email,
+        url,
+        notes,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then((res) => {
+      if (res.ok) {
+        showStatus("Success");
+        viewCredentialList();
+        toggleCredentialListRefresh();
+      } else showStatus("Error");
+    });
   };
 
   return (
@@ -84,7 +107,7 @@ export default function AddCredentialModal({ viewCredentialList }) {
           </button>
           <button
             className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-            onClick={() => onSave("username")}
+            onClick={() => onSave()}
           >
             Submit
           </button>

@@ -14,16 +14,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.SpaProxy" Version="7.0.8" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.8">
+    <PackageReference Include="Microsoft.AspNetCore.SpaProxy" Version="7.0.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.9">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.8" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.8">
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.9">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="MongoDB.Driver" Version="2.20.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -34,11 +35,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Remove="Classes\SampleCedentialGenerator.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Remove="Classes\NewFile.txt" />
     <None Remove="ClientApp\src\components\NewFile.txt" />
     <None Remove="ClientApp\src\NewFile.txt" />
     <None Remove="Models\NewFile.txt" />

@@ -10,14 +10,16 @@ import adjustBrightness from "../deeperColor";
 export default function CredentialModal({
   viewCredentialList,
   credentialData,
+  showStatus,
+  toggleCredentialListRefresh,
 }) {
   const [disabled, setDisabled] = useState(true);
-  const [name, setName] = useState(credentialData.Name);
-  const [username, setUsername] = useState(credentialData.Username);
-  const [password, setPassword] = useState(credentialData.Password);
-  const [email, setEmail] = useState(credentialData.Email);
-  const [url, setURL] = useState(credentialData.Url);
-  const [notes, setNotes] = useState(credentialData.Notes);
+  const [name, setName] = useState(credentialData.name);
+  const [username, setUsername] = useState(credentialData.username);
+  const [password, setPassword] = useState(credentialData.password);
+  const [email, setEmail] = useState(credentialData.email);
+  const [url, setURL] = useState(credentialData.url);
+  const [notes, setNotes] = useState(credentialData.notes);
   const colors = useContext(ColorContext);
 
   const onEdit = () => {
@@ -25,11 +27,57 @@ export default function CredentialModal({
   };
   const onSave = () => {
     setDisabled(true);
+    if (window.confirm("Save this Credential?")) {
+      fetch(
+        `https://localhost:44414/api/credential/${credentialData.credentialId}`,
+        {
+          method: "PUT",
+          body: JSON.stringify({
+            name,
+            username,
+            password,
+            email,
+            url,
+            notes,
+          }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      ).then((res) => {
+        if (res.ok) {
+          viewCredentialList();
+          showStatus("Updated");
+          toggleCredentialListRefresh();
+        } else {
+          showStatus("Error");
+        }
+      });
+    }
   };
 
   const copyText = (id) => {
     const elementText = document.getElementById(id).value;
     navigator.clipboard.writeText(elementText);
+  };
+
+  const onDelete = () => {
+    if (window.confirm("Delete this Credential?")) {
+      fetch(
+        `https://localhost:44414/api/credential/${credentialData.credentialId}`,
+        {
+          method: "DELETE",
+        }
+      ).then((res) => {
+        if (res.ok) {
+          viewCredentialList();
+          showStatus("Deleted");
+          toggleCredentialListRefresh();
+        } else {
+          showStatus("Error");
+        }
+      });
+    }
   };
 
   return (
@@ -164,7 +212,10 @@ export default function CredentialModal({
         >
           <GoArrowUpRight size={40} />
         </button>
-        <button className="w-3/12 h-[40px] flex justify-center items-center mx-1 text-red-600 shadow-sm">
+        <button
+          className="w-3/12 h-[40px] flex justify-center items-center mx-1 text-red-600 shadow-sm"
+          onClick={() => onDelete()}
+        >
           <MdDelete size={40} />
         </button>
       </div>

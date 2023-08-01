@@ -7,7 +7,7 @@ export default function Credential({
   viewCredentialModal,
   passCredentialData,
   refreshCredentialModal,
-  showCopied,
+  showStatus,
   credentialData,
 }) {
   const colors = useContext(ColorContext);
@@ -25,7 +25,7 @@ export default function Credential({
         </div>
 
         <div className="flex flex-col justify-center items-start w-9/12 pl-2">
-          <span className="text-lg">{credentialData.Name}</span>
+          <span className="text-lg">{credentialData.name}</span>
           <span>{credentialData.username}</span>
         </div>
       </div>
@@ -33,12 +33,12 @@ export default function Credential({
         <BiUser
           size={30}
           className="mr-2 cursor-pointer"
-          onClick={() => showCopied()}
+          onClick={() => showStatus("Copied Username")}
         />
         <BiKey
           size={30}
           className="mr-2 cursor-pointer"
-          onClick={() => showCopied()}
+          onClick={() => showStatus("Copied Password")}
         />
         <AiOutlineEllipsis
           size={30}
