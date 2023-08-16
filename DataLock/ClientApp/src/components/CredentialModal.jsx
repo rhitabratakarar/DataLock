@@ -20,7 +20,7 @@ export default function CredentialModal({
   const [email, setEmail] = useState(credentialData.email);
   const [url, setURL] = useState(credentialData.url);
   const [notes, setNotes] = useState(credentialData.notes);
-  const colors = useContext(ColorContext);
+  const {colors, setColors} = useContext(ColorContext);
 
   const onEdit = () => {
     setDisabled(false);
@@ -43,7 +43,7 @@ export default function CredentialModal({
           headers: {
             "Content-Type": "application/json",
           },
-        }
+        },
       ).then((res) => {
         if (res.ok) {
           viewCredentialList();
@@ -67,7 +67,7 @@ export default function CredentialModal({
         `https://localhost:44414/api/credential/${credentialData.credentialId}`,
         {
           method: "DELETE",
-        }
+        },
       ).then((res) => {
         if (res.ok) {
           viewCredentialList();

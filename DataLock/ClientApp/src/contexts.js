@@ -1,5 +1,6 @@
 import React from "react";
 
 const ColorContext = React.createContext({});
+const AestheticContext = React.createContext({});
 
-export { ColorContext };
+export { ColorContext, AestheticContext };

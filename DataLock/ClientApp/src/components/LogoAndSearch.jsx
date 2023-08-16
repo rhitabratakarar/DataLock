@@ -2,7 +2,7 @@ import { useContext, useEffect } from "react";
 import { ColorContext } from "../contexts";
 
 export default function LogoAndSearch({ viewCredentialList, searchInput }) {
-  const colors = useContext(ColorContext);
+  const {colors, setColors} = useContext(ColorContext);
 
   useEffect(() => {
     const searchBox = document.getElementById("search");

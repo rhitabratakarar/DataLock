@@ -13,7 +13,7 @@ export default function PageFunctions({
 }) {
   const [addToggle, setAddToggle] = useState(true);
   const [settingsToggle, setSettingsToggle] = useState(true);
-  const colors = useContext(ColorContext);
+  const {colors, setColors} = useContext(ColorContext);
   return (
     <div
       className="px-4 items-center flex flex-row h-[65px] w-full flex-shrink-0 fixed bottom-0"

@@ -2,7 +2,7 @@ import { useContext, useEffect } from "react";
 import { ColorContext } from "../contexts";
 
 export default function SearchTopOverlay() {
-  const colors = useContext(ColorContext);
+  const {colors, setColors} = useContext(ColorContext);
   useEffect(() => {
     const searchBox = document.getElementById("search");
     searchBox.style.boxShadow = `0 100px 60px ${colors.primary}`;

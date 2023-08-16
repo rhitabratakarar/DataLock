@@ -14,7 +14,7 @@ export default function AddCredentialModal({
   const [email, setEmail] = useState("");
   const [url, setURL] = useState("");
   const [notes, setNotes] = useState("");
-  const colors = useContext(ColorContext);
+  const {colors, setColors} = useContext(ColorContext);
 
   const onSave = () => {
     fetch("https://localhost:44414/api/credential/", {

@@ -10,12 +10,12 @@ import LogoAndSearch from "./LogoAndSearch";
 
 export default function BrowserWindow() {
   const [credentialModalTransition, setCredentialModalTransition] = useState(
-    "opacity-0 right-[100vw]"
+    "opacity-0 right-[100vw]",
   );
   const [addCredentialModalTransition, setAddCredentialModalTransition] =
     useState("opacity-0 right-[100vw]");
   const [settingsModalTransition, setSettingsModalTransition] = useState(
-    "opacity-0 right-[100vw]"
+    "opacity-0 right-[100vw]",
   );
   const [searchButtonClass, setSearchButtonClass] =
     useState("opacity-1 right-0");
@@ -31,7 +31,7 @@ export default function BrowserWindow() {
   });
   const [status, setStatus] = useState("");
   const [credentialListRefresh, setCredentialListRefresh] = useState(0);
-  const colors = useContext(ColorContext);
+  const {colors, setColors} = useContext(ColorContext);
 
   const searchInput = useRef(null);
 

@@ -10,7 +10,7 @@ export default function Credential({
   showStatus,
   credentialData,
 }) {
-  const colors = useContext(ColorContext);
+  const {colors, setColors} = useContext(ColorContext);
   useEffect(() => {
     // add database access code to get credential data and call {passCredentialData}
   });
