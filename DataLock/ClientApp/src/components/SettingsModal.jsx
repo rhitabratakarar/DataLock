@@ -39,14 +39,22 @@ const SettingsModal = () => {
           <button
             className="text-white bg-gray-700 hover:bg-gray-600 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
             onClick={() => {
-              setColors(getColorPallete("1b262c0f4c7552616bbbe1fa"));
+              setColors(getColorPallete());
               setAesthetic("dark");
             }}
           >
             Dark
           </button>
           <button
-            className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
+            className="hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow bg-teal-200"
+            onClick={() => {
+              setAesthetic("custom");
+            }}
+          >
+            Browse
+          </button>
+          <button
+            className="hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow bg-orange-200"
             onClick={() => {
               setAesthetic("custom");
             }}
